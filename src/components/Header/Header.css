@@ -1,0 +1,40 @@
+.header-container {
+  position: sticky;
+  top: 0;
+  display: flex;
+  width: inherit;
+  height: 50px;
+  gap: 72px;
+  padding: 0px 200px;
+  align-items: center;
+  background-color: black;
+}
+.header-link-container {
+  display: flex;
+  gap: 50px;
+  align-items: center;
+  color: white;
+  font-size: 14px;
+}
+.header-logo-container {
+  justify-items: start;
+}
+.header-sign-container {
+  display: flex;
+  align-items: center;
+  color: white;
+  gap: 30px;
+}
+.header-element {
+  width: fit-content;
+  text-align: center;
+}
+.header-element-article {
+  display: flex;
+  gap: 10px;
+}
+.header-sign {
+  display: flex;
+  gap: 10px;
+  width: 10px;
+}

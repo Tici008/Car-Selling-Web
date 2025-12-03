@@ -1,0 +1,17 @@
+.footer-container {
+  position: relative;
+  bottom: 0;
+  width: 1270px;
+  height: 306px;
+  background-color: #12232e;
+}
+.footer-logo {
+  position: relative;
+  top: 24px;
+  left: 552px;
+}
+.footer-firstLine {
+  position: relative;
+  top: 30px;
+  left: 0px;
+}
