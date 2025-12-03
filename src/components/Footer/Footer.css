@@ -1,17 +1,37 @@
 .footer-container {
   position: relative;
   bottom: 0;
-  width: 1270px;
-  height: 306px;
+  width: 100%;
+  height: fit-content;
   background-color: #12232e;
+  padding-bottom: 15px;
 }
 .footer-logo {
   position: relative;
   top: 24px;
   left: 552px;
+  width: fit-content;
 }
 .footer-firstLine {
   position: relative;
   top: 30px;
   left: 0px;
+}
+.footer-content-container {
+  margin: 60px 200px 10px;
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 14px;
+}
+.footer-container-lastLine {
+  color: white;
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 12px;
+  margin: 10px 530px 0px;
 }

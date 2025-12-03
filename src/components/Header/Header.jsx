@@ -19,13 +19,19 @@ function Header() {
         <div className="header-element">Compare</div>
         <div className="header-element">Sell</div>
         <div className="header-element-article">
-          Article
+          <div className="header-element">Article</div>
           <Vector />
         </div>
       </div>
       <div className="header-sign-container">
-        <div classname="header-sign">
-          <SignUp />
+        <div className="header-sign">
+          <div
+            style={{
+              transform: "translateY(2px)",
+            }}
+          >
+            <SignUp />
+          </div>
           <a className="header-element">Sign up</a>
         </div>
         <a className="header-element"> Sign in</a>
