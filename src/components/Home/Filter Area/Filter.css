@@ -1,0 +1,78 @@
+.filter-container {
+  position: absolute;
+  z-index: 3;
+  width: 900px;
+  height: 200px;
+  background-color: #071620;
+  top: 520px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 3px;
+}
+.filter-nav {
+  position: absolute;
+  display: flex;
+  gap: 0px;
+  z-index: 1000;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.filter-menu {
+  width: 120px;
+  height: 24px;
+  color: #007cc7;
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 20px;
+  flex-direction: column;
+  text-align: center;
+  margin-bottom: 4px;
+  cursor: pointer;
+}
+.filter-line {
+  width: 120px;
+  height: 2px;
+  background-color: #007cc7;
+}
+.filter-form {
+  width: 860px;
+  margin: 57px 20px 100px 20px;
+  height: 100px;
+}
+.filter-search {
+  position: relative;
+}
+.filter-search-box {
+  position: relative;
+  top: 12px;
+  background-color: #152836;
+  color: #a9a9a9;
+  border: none;
+  border-radius: 3px;
+  width: 400px;
+  height: 40px;
+  padding: 17px 20px 17px 43px;
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+}
+input ::placeholder {
+  color: #a9a9a9;
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 14px;
+}
+.filter-search-box:focus {
+  outline: none;
+  border: none;
+}
+.filter-searchIcon {
+  position: absolute;
+  z-index: 1;
+  top: 22.5px;
+  left: 15px;
+}

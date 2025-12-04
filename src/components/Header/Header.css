@@ -7,7 +7,7 @@
   justify-content: space-between;
   padding: 0px 150px;
   align-items: center;
-  background-color: black;
+  z-index: 1000;
 }
 .header-link-container {
   display: flex;
