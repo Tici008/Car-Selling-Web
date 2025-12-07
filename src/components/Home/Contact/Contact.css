@@ -1,0 +1,34 @@
+.home-contact-container {
+  position: relative;
+  top: 2630px;
+  width: 100%;
+  height: 730px;
+  display: flex;
+  padding: 60px;
+  gap: 40px;
+}
+.home-contact-img {
+  width: 721px;
+  flex-shrink: 0;
+  height: 100%;
+}
+.home-contact-img img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+.home-contact-form {
+  display: flex;
+  flex-direction: column;
+}
+.home-form-title {
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 36px;
+  margin-bottom: 40px;
+  color: white;
+}
+.home-contact-form-content {
+  color: white;
+}

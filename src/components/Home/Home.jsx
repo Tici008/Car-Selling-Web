@@ -6,6 +6,10 @@ import Recommend from "./Recommended/Recommend";
 import Compare from "./Compare/Compare";
 import News from "./News/News";
 import About from "./About Us/About.jsx";
+import Service from "./Service/Service.jsx";
+import Testimonial from "./Testimonial/Testimonial.jsx";
+import Contact from "./Contact/Contact.jsx";
+import Brand from "./Car Brand/Brand.jsx";
 
 function Home() {
   return (
@@ -20,6 +24,10 @@ function Home() {
       <Compare />
       <News />
       <About />
+      <Service />
+      <Testimonial />
+      <Contact />
+      <Brand />
     </div>
   );
 }

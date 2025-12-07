@@ -1,0 +1,33 @@
+.home-brand-container {
+  width: 100%;
+  height: 154px;
+  position: relative;
+  top: 2700px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: space-evenly;
+}
+.home-brand-container img {
+  object-fit: contain;
+  width: 162px;
+  height: 100%;
+}
+.home-brand-container img:first-child {
+  filter: grayscale(100%) brightness(100%);
+}
+.home-brand-container img:nth-child(2) {
+  filter: grayscale(100%) brightness(70%);
+}
+.home-brand-container img:nth-child(3) {
+  filter: brightness(130%) contrast(30%);
+}
+.home-brand-container img:nth-child(4) {
+  filter: contrast(50%);
+}
+.home-brand-container img:nth-child(5) {
+  filter: brightness(100%);
+}
+.home-brand-container img:nth-child(6) {
+  filter: grayscale(100%) brightness(120%);
+}
