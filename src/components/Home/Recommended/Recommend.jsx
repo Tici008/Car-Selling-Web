@@ -1,7 +1,7 @@
 import React from "react";
 import "./Recommend.css";
 import OpenTag from "../../LOGO/HOME/OpenTag";
-import RecommendedCard from "./RecommendedCard/RecommendedCard";
+import SmallCard from "../../Small Card/SmallCard";
 import carImg1 from "../../img/HOME img/Red.png";
 import carImg2 from "../../img/HOME img/Black.png";
 import carImg3 from "../../img/HOME img/Blue.png";
@@ -52,7 +52,7 @@ function Recommend() {
 
       {/* recommended cards */}
       <div className="recommended-card-container">
-        <RecommendedCard
+        <SmallCard
           carImg={carImg1}
           carTitle="Tesla Model 3 Standard Range 
 Plus"
@@ -64,7 +64,7 @@ Plus"
           carPeople="5"
           carReview="12"
         />
-        <RecommendedCard
+        <SmallCard
           carImg={carImg2}
           carTitle="Ford F-250 Super Duty"
           carPrice="$82,098"
@@ -75,7 +75,7 @@ Plus"
           carPeople="5"
           carReview="24"
         />
-        <RecommendedCard
+        <SmallCard
           carImg={carImg3}
           carTitle="Honda Pilot Touring 7-Passenger"
           carPrice="$43,735"

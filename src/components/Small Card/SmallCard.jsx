@@ -1,14 +1,14 @@
 import React from "react";
-import "./RecommendedCard.css";
-import Ribbon1 from "../../../LOGO/HOME/Ribbon1";
-import Ribbon2 from "../../../LOGO/HOME/Ribbon2";
-import Calendar from "../../../LOGO/HOME/Calendar";
-import Drive from "../../../LOGO/HOME/Drive";
-import Fuel from "../../../LOGO/HOME/Fuel";
-import People from "../../../LOGO/HOME/People";
-import StarEmpty from "../../../LOGO/HOME/StarEmpty";
-import StarFull from "../../../LOGO/HOME/StarFull";
-function RecommendedCard({
+import "./SmallCard.css";
+import Ribbon1 from "../LOGO/HOME/Ribbon1";
+import Ribbon2 from "../LOGO/HOME/Ribbon2";
+import Calendar from "../LOGO/HOME/Calendar";
+import Drive from "../LOGO/HOME/Drive";
+import Fuel from "../LOGO/HOME/Fuel";
+import People from "../LOGO/HOME/People";
+import StarEmpty from "../LOGO/HOME/StarEmpty";
+import StarFull from "../LOGO/HOME/StarFull";
+function SmallCard({
   carImg,
   carTitle,
   carPrice,
@@ -164,4 +164,4 @@ function RecommendedCard({
   );
 }
 
-export default RecommendedCard;
+export default SmallCard;
