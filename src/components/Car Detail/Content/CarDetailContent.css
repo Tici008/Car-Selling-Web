@@ -1,0 +1,146 @@
+.CarDetailContent-container {
+  position: relative;
+}
+.CarDetailContent-des {
+  color: white;
+  width: 600px;
+  height: 250px;
+  margin-bottom: 30px;
+}
+.CarDetailContent-des p:first-child {
+  margin-bottom: 15px;
+}
+.CarDetailContent-des p:nth-child(2) {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: linear-gradient(#d7d7d7, #d7d7d7 20%);
+}
+
+.CarDetailContent-des p:nth-child(3) {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  color: #007cc7;
+}
+.CarDetailContent-detail {
+  position: absolute;
+  right: 0px;
+  top: 150px;
+  background-color: #071620;
+  width: 330px;
+  height: 1200px;
+  border-radius: 3px;
+}
+.CarDetailContent-priceBox {
+  position: absolute;
+  top: 50px;
+  right: 0px;
+  color: #007cc7;
+  width: 330px;
+  height: 60px;
+  border-radius: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 20px;
+  border: 1px solid #007cc7;
+}
+.CarDetailContent-feature {
+  width: 650px;
+  height: 250px;
+  background-color: #007cc7;
+  margin-bottom: 50px;
+}
+.CarDetailContent-dealer {
+  width: 660px;
+  height: 130px;
+  margin-bottom: 60px;
+}
+.detail-smallTitle {
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 21px;
+  color: #d7d7d7;
+}
+.car-dealer {
+  width: fit-content;
+  padding: 10px 20px;
+  margin-top: 30px;
+  background-color: #071620;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+.car-dealer p {
+  font-family: "Lato", sans-serif;
+  font-weight: 600 !important;
+  font-style: normal;
+  font-size: 15px !important;
+  color: #d7d7d7;
+}
+
+.car-dealer img {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.dealer-stick {
+  border: 0.1px solid #ffffff;
+  height: 56px;
+  width: 1px;
+}
+.CarDetailContent-contact {
+  width: 650px;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+.detail-location {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 14px;
+  color: #ffffff;
+}
+.detail-form-title {
+  font-family: "Lato", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 16px;
+  color: #ffffff;
+}
+.detail-form-input {
+  border-radius: 3px;
+  background-color: #152836;
+  width: 300px;
+  height: 45px;
+  color: #a9a9a9;
+  border: none;
+  margin-top: 5px;
+}
+.detail-form-input:hover {
+  background-color: #152836;
+}
+.detail-form-input:active {
+  background-color: #152836;
+}
+.detail-form-input:focus {
+  background-color: #152836;
+}
+.detail-form-input::placeholder {
+  color: #a9a9a9 !important;
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 14px;
+}
