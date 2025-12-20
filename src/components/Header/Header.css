@@ -47,3 +47,7 @@
 .header-element:active {
   transform: scale(0.92);
 }
+.link-style {
+  text-decoration: none;
+  color: inherit;
+}
