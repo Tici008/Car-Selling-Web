@@ -1,20 +1,18 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Home from "./components/Home/Home";
-import Header from "./components/Header/Header";
-import Footer from "./components/Footer/Footer";
+import SearchResult from "./components/SearchResult/SearchResult";
 
 function App() {
   return (
-    <>
+    <Router>
       <div className="app-container">
-        <Header />
-        <Home />
-        <Footer />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/search" element={<SearchResult />} />
+        </Routes>
       </div>
-    </>
+    </Router>
   );
 }
 
