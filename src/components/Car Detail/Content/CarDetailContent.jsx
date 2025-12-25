@@ -3,10 +3,12 @@ import "./CarDetailContent.css";
 import Phone from "../../LOGO/CAR DETAIL/Phone";
 import Email from "../../LOGO/CAR DETAIL/Email";
 import { Button, Form, Input, Select } from "antd";
+import detailBox from "./CarContent-detail/detailBox";
 const { TextArea } = Input;
 function CarDetailContent() {
   return (
     <div className="CarDetailContent-container">
+      {/* DESCRIPTION */}
       <div className="CarDetailContent-des">
         <p className="detail-smallTitle">Description</p>
         <p>
@@ -25,17 +27,22 @@ function CarDetailContent() {
         </p>
         <p>Read more</p>
       </div>
+
+      {/* PRICE + FEATURE*/}
       <div className="CarDetailContent-priceBox">$56,690</div>
       <div className="CarDetailContent-feature">
         <p>Feature</p>
         <div></div>
         <p>Show more</p>
       </div>
+
+      {/* DETAIL */}
       <div className="CarDetailContent-detail">
-        <p></p>
-        <div></div>
-        <div></div>
+        <detailBox />
+        <detailBox />
       </div>
+
+      {/* DEALER */}
       <div className="CarDetailContent-dealer">
         <p className="detail-smallTitle">Dealer Info</p>
         <div className="car-dealer">
@@ -55,6 +62,8 @@ function CarDetailContent() {
           <p>alfred.g@mail.com</p>
         </div>
       </div>
+
+      {/* CONTACT + LOCATION */}
       <div className="CarDetailContent-contact">
         <p className="detail-smallTitle">Contact</p>
 
@@ -115,12 +124,18 @@ function CarDetailContent() {
           <p className="detail-location">
             9500 E Tsala Apopka Dr, Floral City, FL, 34436, Florida, USA
           </p>
-          <img src="" alt="" />
+          <img
+            style={{ marginTop: "20px", width: "100%", height: "100%" }}
+            src="../../../../public/img/CARDETAIL img/location.png"
+            alt=""
+          />
         </div>
       </div>
+
+      {/* CREDIT */}
       <div className="CarDetailContent-credit">
         <p className="detail-smallTitle">Credit Simulation</p>
-        <div>
+        <div className="payment-simulation">
           <div className="CarDetailContent-credit-left"></div>
           <div className="CarDetailContent-credit-right">
             <p>Monthly Payment</p>

@@ -36,9 +36,6 @@ function CarDetail() {
             <img className="carDetail-img-css" src={IMG5} alt="" />
           </div>
           <div className="carDetail-imgContainer-css">
-            <img className="carDetail-img-css" src={IMG} alt="" />
-          </div>
-          <div className="carDetail-imgContainer-css">
             <img className="carDetail-img-css" src={IMG6} alt="" />
           </div>
           <div className="carDetail-imgContainer-css">

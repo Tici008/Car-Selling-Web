@@ -34,6 +34,10 @@
   width: 330px;
   height: 1200px;
   border-radius: 3px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 }
 .CarDetailContent-priceBox {
   position: absolute;
@@ -111,6 +115,7 @@
   font-style: normal;
   font-size: 14px;
   color: #ffffff;
+  margin-top: 20px;
 }
 .detail-form-title {
   font-family: "Lato", sans-serif;
@@ -143,4 +148,20 @@
   font-weight: 400;
   font-style: normal;
   font-size: 14px;
+}
+
+/* CREDIT */
+.CarDetailContent-credit {
+  margin-top: 60px;
+  width: 100%;
+  height: fit-content;
+}
+.payment-simulation {
+  margin-top: 15px;
+  background-color: #071620;
+  height: 210px;
+  width: 100%;
+  display: flex;
+  padding: 15px;
+  gap: 15px;
 }
