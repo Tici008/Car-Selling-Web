@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import './SearchResult.css';
-import Header from '../Header/Header';
-import Footer from '../Footer/Footer';
+import React, { useState } from "react";
+import "./SearchResult.css";
+import Header from "../Header/Header";
+import Footer from "../Footer/Footer";
 
 const SearchResult = () => {
-  const [viewMode, setViewMode] = useState('grid'); // 'grid' or 'list'
+  const [viewMode, setViewMode] = useState("grid"); // 'grid' or 'list'
   const [currentPage, setCurrentPage] = useState(1);
 
   return (
@@ -31,20 +31,18 @@ const SearchResult = () => {
 
             <div className="filter-content">
               {/* Search Field */}
-              <div className="search-field">
-                <svg className="search-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                  <path d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M21 21L16.65 16.65" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-                <input type="text" placeholder="Search" />
-              </div>
 
               {/* Condition Radio Buttons */}
               <div className="filter-group">
                 <h3>Condition</h3>
                 <div className="radio-group">
                   <label className="radio-option">
-                    <input type="radio" name="condition" value="all" defaultChecked />
+                    <input
+                      type="radio"
+                      name="condition"
+                      value="all"
+                      defaultChecked
+                    />
                     <span className="radio-label">All</span>
                   </label>
                   <label className="radio-option">
@@ -62,8 +60,20 @@ const SearchResult = () => {
               <div className="filter-accordion">
                 <div className="accordion-header">
                   <span>Year</span>
-                  <svg className="chevron-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                    <path d="M5 7.5L10 12.5L15 7.5" stroke="#D7D7D7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  <svg
+                    className="chevron-icon"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                  >
+                    <path
+                      d="M5 7.5L10 12.5L15 7.5"
+                      stroke="#D7D7D7"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
                   </svg>
                 </div>
                 <div className="accordion-content">
@@ -83,7 +93,9 @@ const SearchResult = () => {
                     <input type="checkbox" />
                     <span>2019</span>
                   </label>
-                  <a href="#" className="see-more">See More</a>
+                  <a href="#" className="see-more">
+                    See More
+                  </a>
                 </div>
               </div>
 
@@ -91,14 +103,23 @@ const SearchResult = () => {
               <div className="filter-accordion">
                 <div className="accordion-header">
                   <span>Brand</span>
-                  <svg className="chevron-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                    <path d="M5 7.5L10 12.5L15 7.5" stroke="#D7D7D7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  <svg
+                    className="chevron-icon"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                  >
+                    <path
+                      d="M5 7.5L10 12.5L15 7.5"
+                      stroke="#D7D7D7"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
                   </svg>
                 </div>
                 <div className="accordion-content">
-                  <div className="search-field-small">
-                    <input type="text" placeholder="Search here" />
-                  </div>
                   <label className="checkbox-option">
                     <input type="checkbox" />
                     <span>Audi</span>
@@ -115,7 +136,9 @@ const SearchResult = () => {
                     <input type="checkbox" />
                     <span>Ford</span>
                   </label>
-                  <a href="#" className="see-more">See More</a>
+                  <a href="#" className="see-more">
+                    See More
+                  </a>
                 </div>
               </div>
 
@@ -123,67 +146,96 @@ const SearchResult = () => {
               <div className="dropdown disabled">
                 <span>Model</span>
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                  <path d="M6 9L12 15L18 9" stroke="#989898" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path
+                    d="M6 9L12 15L18 9"
+                    stroke="#989898"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
                 </svg>
               </div>
 
               <div className="dropdown">
                 <span>Body Type</span>
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                  <path d="M6 9L12 15L18 9" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path
+                    d="M6 9L12 15L18 9"
+                    stroke="white"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
                 </svg>
               </div>
 
               <div className="dropdown">
                 <span>Transmission</span>
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                  <path d="M6 9L12 15L18 9" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path
+                    d="M6 9L12 15L18 9"
+                    stroke="white"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
                 </svg>
               </div>
 
               <div className="dropdown">
                 <span>Fuel Type</span>
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                  <path d="M6 9L12 15L18 9" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path
+                    d="M6 9L12 15L18 9"
+                    stroke="white"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
                 </svg>
               </div>
 
               <div className="dropdown">
                 <span>Drivetrain</span>
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                  <path d="M6 9L12 15L18 9" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path
+                    d="M6 9L12 15L18 9"
+                    stroke="white"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
                 </svg>
               </div>
 
               <div className="dropdown">
                 <span>Passenger Capacity</span>
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                  <path d="M6 9L12 15L18 9" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path
+                    d="M6 9L12 15L18 9"
+                    stroke="white"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
                 </svg>
               </div>
 
               <div className="dropdown">
                 <span>Exterior Color</span>
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                  <path d="M6 9L12 15L18 9" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path
+                    d="M6 9L12 15L18 9"
+                    stroke="white"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
                 </svg>
               </div>
 
-              {/* Price Range */}
-              <div className="price-range">
-                <div className="price-label">
-                  <span className="label">Price Range</span>
-                  <span className="value">$.0 - $3,000,000.00</span>
-                </div>
-                <div className="range-slider">
-                  <div className="range-track"></div>
-                  <div className="range-thumb range-thumb-min"></div>
-                  <div className="range-thumb range-thumb-max"></div>
-                </div>
-              </div>
-
               {/* Reset Filter Button */}
-              <button className="reset-button">Reset Filter</button>
+              <button className="reset-button"> Filter</button>
             </div>
           </aside>
 
@@ -191,9 +243,27 @@ const SearchResult = () => {
           <main className="results-area">
             {/* Search Bar */}
             <div className="results-search">
-              <svg className="search-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <path d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                <path d="M21 21L16.65 16.65" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              <svg
+                className="search-icon"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+              >
+                <path
+                  d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z"
+                  stroke="white"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M21 21L16.65 16.65"
+                  stroke="white"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
               </svg>
               <input type="text" placeholder="Search" />
             </div>
@@ -205,27 +275,69 @@ const SearchResult = () => {
                 <div className="sort-dropdown">
                   <span>Sort By</span>
                   <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                    <path d="M5 7.5L10 12.5L15 7.5" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path
+                      d="M5 7.5L10 12.5L15 7.5"
+                      stroke="white"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
                   </svg>
                 </div>
-                <button 
-                  className={`view-btn ${viewMode === 'list' ? 'active' : ''}`}
-                  onClick={() => setViewMode('list')}
+                <button
+                  className={`view-btn ${viewMode === "list" ? "active" : ""}`}
+                  onClick={() => setViewMode("list")}
                 >
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <rect x="3" y="6" width="18" height="4" fill="currentColor"/>
-                    <rect x="3" y="14" width="18" height="4" fill="currentColor"/>
+                    <rect
+                      x="3"
+                      y="6"
+                      width="18"
+                      height="4"
+                      fill="currentColor"
+                    />
+                    <rect
+                      x="3"
+                      y="14"
+                      width="18"
+                      height="4"
+                      fill="currentColor"
+                    />
                   </svg>
                 </button>
-                <button 
-                  className={`view-btn ${viewMode === 'grid' ? 'active' : ''}`}
-                  onClick={() => setViewMode('grid')}
+                <button
+                  className={`view-btn ${viewMode === "grid" ? "active" : ""}`}
+                  onClick={() => setViewMode("grid")}
                 >
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <rect x="3" y="3" width="8" height="8" fill="currentColor"/>
-                    <rect x="13" y="3" width="8" height="8" fill="currentColor"/>
-                    <rect x="3" y="13" width="8" height="8" fill="currentColor"/>
-                    <rect x="13" y="13" width="8" height="8" fill="currentColor"/>
+                    <rect
+                      x="3"
+                      y="3"
+                      width="8"
+                      height="8"
+                      fill="currentColor"
+                    />
+                    <rect
+                      x="13"
+                      y="3"
+                      width="8"
+                      height="8"
+                      fill="currentColor"
+                    />
+                    <rect
+                      x="3"
+                      y="13"
+                      width="8"
+                      height="8"
+                      fill="currentColor"
+                    />
+                    <rect
+                      x="13"
+                      y="13"
+                      width="8"
+                      height="8"
+                      fill="currentColor"
+                    />
                   </svg>
                 </button>
               </div>
@@ -240,14 +352,36 @@ const SearchResult = () => {
             <div className="pagination">
               <button className="page-btn prev">
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                  <path d="M12.5 15L7.5 10L12.5 5" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path
+                    d="M12.5 15L7.5 10L12.5 5"
+                    stroke="white"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
                 </svg>
               </button>
-              <button className={`page-btn ${currentPage === 1 ? 'active' : ''}`} onClick={() => setCurrentPage(1)}>1</button>
-              <button className={`page-btn ${currentPage === 2 ? 'active' : ''}`} onClick={() => setCurrentPage(2)}>2</button>
+              <button
+                className={`page-btn ${currentPage === 1 ? "active" : ""}`}
+                onClick={() => setCurrentPage(1)}
+              >
+                1
+              </button>
+              <button
+                className={`page-btn ${currentPage === 2 ? "active" : ""}`}
+                onClick={() => setCurrentPage(2)}
+              >
+                2
+              </button>
               <button className="page-btn next">
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                  <path d="M7.5 15L12.5 10L7.5 5" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path
+                    d="M7.5 15L12.5 10L7.5 5"
+                    stroke="white"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
                 </svg>
               </button>
             </div>
@@ -261,7 +395,13 @@ const SearchResult = () => {
       {/* Scroll to Top Button */}
       <button className="scroll-top-btn">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-          <path d="M18 15L12 9L6 15" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          <path
+            d="M18 15L12 9L6 15"
+            stroke="white"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
         </svg>
       </button>
     </div>
