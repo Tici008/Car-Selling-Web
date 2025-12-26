@@ -32,9 +32,9 @@
   top: 150px;
   background-color: #071620;
   width: 330px;
-  height: 1200px;
+  height: fit-content;
   border-radius: 3px;
-  padding: 10px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   gap: 30px;
@@ -117,6 +117,11 @@
   color: #ffffff;
   margin-top: 20px;
 }
+.detail-form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
 .detail-form-title {
   font-family: "Lato", sans-serif;
   font-weight: 500;
@@ -127,11 +132,39 @@
 .detail-form-input {
   border-radius: 3px;
   background-color: #152836;
-  width: 300px;
-  height: 45px;
+  width: 300px !important;
+  height: 45px !important;
+  color: #a9a9a9 !important;
+  border: none;
+  margin-top: 5px;
+}
+.detail-form-comment {
+  border-radius: 3px;
+  background-color: #152836;
+  width: 620px !important;
+  height: 170px !important;
   color: #a9a9a9;
   border: none;
   margin-top: 5px;
+}
+.detail-form-comment:hover {
+  background-color: #152836;
+}
+.detail-form-comment:focus {
+  background-color: #152836;
+}
+.detail-form-submit {
+  border-radius: 3px;
+  background-color: #007cc7;
+  width: 620px !important;
+  height: 45px;
+  color: white;
+  border: none;
+  margin-top: 5px;
+}
+.detail-form-submit:hover {
+  background-color: #007cc7 !important;
+  color: white !important;
 }
 .detail-form-input:hover {
   background-color: #152836;

@@ -1,0 +1,42 @@
+.detailBox-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.detailBox-title {
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 20px;
+  color: white;
+}
+.detailBox-prop-container {
+  display: flex;
+  justify-content: space-between;
+}
+.detailBox-left {
+  font-family: "Lato", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 13px;
+  color: #a9a9a9;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.detailBox-right {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 13px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  text-align: end;
+}
+.detailBox-line {
+  width: 100%;
+  height: 1px;
+  background-color: white;
+}

@@ -4,7 +4,7 @@ import OpenTag from "../../LOGO/HOME/OpenTag";
 import SmallCard from "../../Small Card/SmallCard";
 import carImg1 from "../../img/HOME img/Red.png";
 import carImg2 from "../../img/HOME img/Black.png";
-import carImg3 from "../../img/HOME img/Blue.png";
+import carImg3 from "../../../../public/img/CARDETAIl img/Acura/acura1.jpg";
 function Recommend() {
   return (
     <div className="recommend-container">
@@ -77,13 +77,13 @@ Plus"
         />
         <SmallCard
           carImg={carImg3}
-          carTitle="Honda Pilot Touring 7-Passenger"
-          carPrice="$43,735"
+          carTitle="Acura RDX Technology Package With Navigation & AWD"
+          carPrice="$50,349"
           carLocation="San Francisco, CA"
-          carTime="2021"
-          carDrive="All-Wheel Drive"
+          carTime="2026"
+          carDrive="Four-Wheel Drive"
           carFuel="Gasoline"
-          carPeople="7"
+          carPeople="6"
           carReview="18"
         />
       </div>
