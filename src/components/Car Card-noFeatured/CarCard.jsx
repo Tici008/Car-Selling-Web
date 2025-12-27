@@ -1,5 +1,5 @@
 import React from "react";
-import "./SmallCard.css";
+import "./CarCard.css";
 import Ribbon1 from "../LOGO/HOME/Ribbon1";
 import Ribbon2 from "../LOGO/HOME/Ribbon2";
 import Calendar from "../LOGO/HOME/Calendar";
@@ -8,8 +8,7 @@ import Fuel from "../LOGO/HOME/Fuel";
 import People from "../LOGO/HOME/People";
 import StarEmpty from "../LOGO/HOME/StarEmpty";
 import StarFull from "../LOGO/HOME/StarFull";
-import { Link } from "react-router";
-function SmallCard({
+function CarCard({
   carImg,
   carTitle,
   carPrice,
@@ -21,7 +20,7 @@ function SmallCard({
   carReview,
 }) {
   return (
-    <div className="card-container">
+    <div className="carCard-container">
       {/* ribbon */}
       <div style={{ position: "absolute", left: "94px" }}>
         <Ribbon1 />
@@ -68,22 +67,19 @@ function SmallCard({
         />
       </div>
       {/* content */}
-      <div className="card-content-container">
-        <div className="card-content-tag">New</div>
-        <Link className="link-style" to="/car-detail">
-          <div className="card-content-title">
-            <p>{carTitle}</p>
-          </div>
-        </Link>
-
-        <div className="card-content-price">
+      <div className="carCard-content-container">
+        <div className="carCard-content-tag">New</div>
+        <div className="carCard-content-title">
+          <p>{carTitle}</p>
+        </div>
+        <div className="carCard-content-price">
           <h2>{carPrice}</h2>
         </div>
-        <div className="card-content-location">
+        <div className="carCard-content-location">
           <p>{carLocation}</p>
         </div>
-        <div className="card-content-detail">
-          <div className="card-content-detail-item">
+        <div className="carCard-content-detail">
+          <div className="carCard-content-detail-item">
             <div
               style={{
                 display: "flex",
@@ -107,7 +103,7 @@ function SmallCard({
             </div>
           </div>
 
-          <div className="card-content-detail-item">
+          <div className="carCard-content-detail-item">
             <div
               style={{
                 display: "flex",
@@ -168,4 +164,4 @@ function SmallCard({
   );
 }
 
-export default SmallCard;
+export default CarCard;
