@@ -5,7 +5,7 @@ import Email from "../../LOGO/CAR DETAIL/Email";
 import { Button, Form, Input, Select } from "antd";
 import DetailBox from "./CarContent-detail/detailBox";
 const { TextArea } = Input;
-function CarDetailContent() {
+function CarDetailContent({ carData }) {
   const [form] = Form.useForm();
   const onSubmit = () => {
     form.resetFields();
@@ -33,7 +33,7 @@ function CarDetailContent() {
       </div>
 
       {/* PRICE + FEATURE*/}
-      <div className="CarDetailContent-priceBox">$56,690</div>
+      <div className="CarDetailContent-priceBox">${carData.cost}</div>
       <div className="CarDetailContent-feature">
         <p>Feature</p>
         <div></div>
@@ -44,35 +44,47 @@ function CarDetailContent() {
       <div className="CarDetailContent-detail">
         <DetailBox
           in4Type="general"
-          brand="Tesla"
-          model="Model 3"
-          condition="New"
-          year="2019"
-          bodyType="Sedan"
-          seats="5 people"
-          exteriorColor="Red"
+          brand={carData.brand}
+          model={carData.model}
+          condition={carData.condition}
+          year={carData.year}
+          bodyType={carData.bodyType}
+          seats={carData.seats}
+          exteriorColor={carData.exteriorColor}
         />
         <DetailBox
           in4Type="engine"
-          fuelType="Electric"
-          mileage="340km"
-          transmission="Automatic"
-          driveTrain="Rear-wheel Drive"
-          power="283 hp (211 kW)"
+          fuelType={carData.fuelType}
+          mileage={carData.mileage}
+          transmission={carData.transmission}
+          driveTrain={carData.driveTrain}
+          power={carData.power}
         />
-        <DetailBox
-          in4Type="battery"
-          batteryCapacity="55.0-kWh"
-          chargeSpeed="64km/h"
-          chargePort="Type 2"
-          chargeTime="330mnt"
-        />
+        {carData.batteryCapacity && (
+          <DetailBox
+            in4Type="battery"
+            engine={carData.batteryCapacity}
+            engineTorque={carData.chargeSpeed}
+            fuelTankCapacity={carData.chargePort}
+            fuelConsumption={carData.chargeTime}
+          />
+        )}
+        {carData.fuelTankCapacity && (
+          <DetailBox
+            in4Type="fuel"
+            engine={carData.engine}
+            engineTorque={carData.engineTorque}
+            fuelTankCapacity={carData.fuelTankCapacity}
+            fuelConsumption={carData.fuelConsumption}
+          />
+        )}
+
         <DetailBox
           in4Type="dimension"
-          length="4694 mm"
-          width="1849 mm"
-          height="1443 mm"
-          cargoVolume="542 L"
+          length={carData.length}
+          width={carData.width}
+          height={carData.height}
+          cargoVolume={carData.cargoVolume}
         />
       </div>
 

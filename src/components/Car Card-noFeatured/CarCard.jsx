@@ -1,14 +1,14 @@
 import React from "react";
 import "./CarCard.css";
-import Ribbon1 from "../LOGO/HOME/Ribbon1";
-import Ribbon2 from "../LOGO/HOME/Ribbon2";
 import Calendar from "../LOGO/HOME/Calendar";
 import Drive from "../LOGO/HOME/Drive";
 import Fuel from "../LOGO/HOME/Fuel";
 import People from "../LOGO/HOME/People";
 import StarEmpty from "../LOGO/HOME/StarEmpty";
 import StarFull from "../LOGO/HOME/StarFull";
+import { Link } from "react-router";
 function CarCard({
+  cId,
   cImg,
   cTitle,
   cPrice,
@@ -44,9 +44,12 @@ function CarCard({
       {/* content */}
       <div className="carCard-content-container">
         <div className="carCard-content-tag">New</div>
-        <div className="carCard-content-title">
-          <p>{cTitle}</p>
-        </div>
+        <Link to={`/car-detail/${cId}`} className="link-style">
+          <div className="carCard-content-title">
+            <p>{cTitle}</p>
+          </div>
+        </Link>
+
         <div className="carCard-content-price">
           <h2>${cPrice}</h2>
         </div>

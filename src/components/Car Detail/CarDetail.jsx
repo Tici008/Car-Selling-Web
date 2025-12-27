@@ -1,51 +1,53 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./CarDetail.css";
 import Header2 from "../Header 2/Header2";
-import IMG from "../img/HOME img/Red.png";
-import IMG2 from "../img/CARDETAIL img/2nd.png";
-import IMG3 from "../img/CARDETAIL img/3rd.png";
-import IMG4 from "../img/CARDETAIL img/4th.png";
-import IMG5 from "../img/CARDETAIL img/5th.png";
-import IMG6 from "../img/CARDETAIL img/6th.png";
-import IMG7 from "../img/CARDETAIL img/7th.png";
 import CarDetailContent from "./Content/CarDetailContent.jsx";
+import { useParams } from "react-router";
 
 function CarDetail() {
+  const [cars, setCars] = useState([]);
+  const { id } = useParams();
+  const apiUrl = "http://localhost:3000/cars";
+  useEffect(() => {
+    fetch(`${apiUrl}/${id}`)
+      .then((res) => res.json())
+      .then((data) => setCars(data));
+  }, [id]);
   return (
     <>
       {/* Image */}
       <div className="carDetail-img-container">
-        <Header2 title2={"Tesla Model 3 Standard Range Plus"} />
+        <Header2 title2={cars.name} />
         <div className="carDetail-Img">
-          <img src={IMG} alt="" />
+          <img src={cars.img1} alt="" />
         </div>
         <div className="carDetail-des-image">
           <div className="carDetail-imgContainer-css">
-            <img className="carDetail-img-css" src={IMG} alt="" />
+            <img className="carDetail-img-css" src={cars.img1} alt="" />
           </div>
           <div className="carDetail-imgContainer-css">
-            <img className="carDetail-img-css" src={IMG2} alt="" />
+            <img className="carDetail-img-css" src={cars.img2} alt="" />
           </div>
           <div className="carDetail-imgContainer-css">
-            <img className="carDetail-img-css" src={IMG3} alt="" />
+            <img className="carDetail-img-css" src={cars.img3} alt="" />
           </div>
           <div className="carDetail-imgContainer-css">
-            <img className="carDetail-img-css" src={IMG4} alt="" />
+            <img className="carDetail-img-css" src={cars.img4} alt="" />
           </div>
           <div className="carDetail-imgContainer-css">
-            <img className="carDetail-img-css" src={IMG5} alt="" />
+            <img className="carDetail-img-css" src={cars.img5} alt="" />
           </div>
           <div className="carDetail-imgContainer-css">
-            <img className="carDetail-img-css" src={IMG6} alt="" />
+            <img className="carDetail-img-css" src={cars.img6} alt="" />
           </div>
           <div className="carDetail-imgContainer-css">
-            <img className="carDetail-img-css" src={IMG7} alt="" />
+            <img className="carDetail-img-css" src={cars.img7} alt="" />
           </div>
         </div>
       </div>
       {/* main part */}
       <div className="carDetail-content-container">
-        <CarDetailContent />
+        <CarDetailContent carData={cars} />
       </div>
     </>
   );

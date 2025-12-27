@@ -84,6 +84,31 @@ const BatteryInfo = ({
     <div className="detailBox-line"></div>
   </div>
 );
+const FuelInfo = ({
+  engine,
+  engineTorque,
+  fuelTankCapacity,
+  fuelConsumption,
+}) => (
+  <div className="detailBox-container">
+    <p className="detailBox-title">Fuel and Engine </p>
+    <div className="detailBox-prop-container">
+      <div className="detailBox-left">
+        <p>Engine</p>
+        <p>Engine Torque</p>
+        <p>Fuel Tank Capacity</p>
+        <p>Fuel Consumption </p>
+      </div>
+      <div className="detailBox-right">
+        <p>{engine}</p>
+        <p>{engineTorque}</p>
+        <p>{fuelTankCapacity}</p>
+        <p>{fuelConsumption}</p>
+      </div>
+    </div>
+    <div className="detailBox-line"></div>
+  </div>
+);
 const Dimension = ({ length, width, height, cargoVolume }) => (
   <div className="detailBox-container">
     <p className="detailBox-title">Dimension</p>
@@ -109,6 +134,7 @@ const INFO_COMPONENT = {
   engine: EngineInfo,
   battery: BatteryInfo,
   dimension: Dimension,
+  fuel: FuelInfo,
 };
 
 function DetailBox(props) {

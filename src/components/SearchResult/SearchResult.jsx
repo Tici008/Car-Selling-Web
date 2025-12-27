@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "./SearchResult.css";
-import Header from "../Header/Header";
-import Footer from "../Footer/Footer";
 import CarCard from "../Car Card-noFeatured/CarCard";
 
 const SearchResult = () => {
@@ -19,7 +17,6 @@ const SearchResult = () => {
   }, []);
 
   const [viewMode, setViewMode] = useState("grid"); // 'grid' or 'list'
-  const [currentPage, setCurrentPage] = useState(1);
 
   return (
     <div className="search-result-page">
@@ -370,6 +367,7 @@ const SearchResult = () => {
                   cFuel={carCard.fuel}
                   cPeople={carCard.peopleLimit}
                   cReview={carCard.review}
+                  cId={carCard.id}
                 />
               ))}
             </div>
