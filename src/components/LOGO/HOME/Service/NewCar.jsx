@@ -13,20 +13,20 @@ function NewCar() {
         <path
           d="M44.0351 21.9938C43.3479 21.0816 40.7951 20.4534 39.7151 18.8119C38.6351 17.1703 37.751 13.6153 35.0023 12.2494C32.2535 10.8834 26.9998 10.5 23.9998 10.5C20.9998 10.5 15.7498 10.875 12.9973 12.2466C10.2448 13.6181 9.36445 17.1703 8.28445 18.8091C7.20445 20.4478 4.65164 21.0816 3.96445 21.9938C3.27727 22.9059 2.79351 28.6725 3.08789 31.5C3.38226 34.3275 3.93164 36 3.93164 36H11.9941C13.3141 36 13.7435 35.5041 16.4435 35.25C19.406 34.9688 22.3123 34.875 23.9998 34.875C25.6873 34.875 28.6873 34.9688 31.6479 35.25C34.3479 35.5059 34.7913 36 36.0973 36H44.066C44.066 36 44.6154 34.3275 44.9098 31.5C45.2041 28.6725 44.7185 22.9059 44.0351 21.9938Z"
           stroke="white"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
         <path
           d="M37.5 36H42.75V37.5H37.5V36Z"
           stroke="white"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
         <path
           d="M5.25 36H10.5V37.5H5.25V36Z"
           stroke="white"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
         <path
           d="M34.169 28.9838C33.6149 28.3434 31.8093 27.8091 29.4187 27.4509C27.0281 27.0928 26.1562 27 24.0187 27C21.8812 27 20.909 27.1537 18.6178 27.4509C16.3265 27.7481 14.6062 28.2769 13.8684 28.9838C12.7612 30.0563 14.3831 31.26 15.6562 31.4063C16.8899 31.5469 19.3565 31.4953 24.029 31.4953C28.7015 31.4953 31.1681 31.5469 32.4018 31.4063C33.6731 31.2516 35.1787 30.1313 34.169 28.9838Z"
@@ -43,20 +43,20 @@ function NewCar() {
         <path
           d="M40.5 18H42"
           stroke="white"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
         <path
           d="M6 18H7.5"
           stroke="white"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
         <path
           d="M7.3125 19.7812C7.3125 19.7812 11.6578 18.6562 24 18.6562C36.3422 18.6562 40.6875 19.7812 40.6875 19.7812"
           stroke="white"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
       </svg>
     </div>

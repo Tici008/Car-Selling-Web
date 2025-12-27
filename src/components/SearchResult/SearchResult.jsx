@@ -1,16 +1,29 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./SearchResult.css";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
+import CarCard from "../Car Card-noFeatured/CarCard";
 
 const SearchResult = () => {
+  // API
+  const [cars, setCars] = useState([]);
+  const apiUrl = "http://localhost:3000/cars";
+  const dataSet = (data) => {
+    setCars(data);
+  };
+
+  useEffect(() => {
+    fetch(apiUrl)
+      .then((response) => response.json())
+      .then(dataSet);
+  }, []);
+
   const [viewMode, setViewMode] = useState("grid"); // 'grid' or 'list'
   const [currentPage, setCurrentPage] = useState(1);
 
   return (
     <div className="search-result-page">
       {/* Header */}
-      <Header />
 
       {/* Page Header Section */}
       <div className="page-header">
@@ -270,7 +283,7 @@ const SearchResult = () => {
 
             {/* Results Header */}
             <div className="results-header">
-              <h2 className="results-count">12 Results</h2>
+              <h2 className="results-count">6 Results</h2>
               <div className="results-controls">
                 <div className="sort-dropdown">
                   <span>Sort By</span>
@@ -345,52 +358,26 @@ const SearchResult = () => {
 
             {/* Results Grid */}
             <div className={`results-grid ${viewMode}`}>
-              {/* Add your car card components here */}
-            </div>
-
-            {/* Pagination */}
-            <div className="pagination">
-              <button className="page-btn prev">
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                  <path
-                    d="M12.5 15L7.5 10L12.5 5"
-                    stroke="white"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </button>
-              <button
-                className={`page-btn ${currentPage === 1 ? "active" : ""}`}
-                onClick={() => setCurrentPage(1)}
-              >
-                1
-              </button>
-              <button
-                className={`page-btn ${currentPage === 2 ? "active" : ""}`}
-                onClick={() => setCurrentPage(2)}
-              >
-                2
-              </button>
-              <button className="page-btn next">
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                  <path
-                    d="M7.5 15L12.5 10L7.5 5"
-                    stroke="white"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </button>
+              {cars.map((carCard) => (
+                <CarCard
+                  key={carCard.id}
+                  cImg={carCard.img1}
+                  cTitle={carCard.name}
+                  cPrice={carCard.cost}
+                  cLocation={carCard.location}
+                  cTime={carCard.date}
+                  cDrive={carCard.type}
+                  cFuel={carCard.fuel}
+                  cPeople={carCard.peopleLimit}
+                  cReview={carCard.review}
+                />
+              ))}
             </div>
           </main>
         </div>
       </div>
 
       {/* Footer */}
-      <Footer />
 
       {/* Scroll to Top Button */}
       <button className="scroll-top-btn">

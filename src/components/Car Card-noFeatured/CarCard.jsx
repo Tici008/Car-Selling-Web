@@ -9,43 +9,18 @@ import People from "../LOGO/HOME/People";
 import StarEmpty from "../LOGO/HOME/StarEmpty";
 import StarFull from "../LOGO/HOME/StarFull";
 function CarCard({
-  carImg,
-  carTitle,
-  carPrice,
-  carLocation,
-  carTime,
-  carDrive,
-  carFuel,
-  carPeople,
-  carReview,
+  cImg,
+  cTitle,
+  cPrice,
+  cLocation,
+  cTime,
+  cDrive,
+  cFuel,
+  cPeople,
+  cReview,
 }) {
   return (
     <div className="carCard-container">
-      {/* ribbon */}
-      <div style={{ position: "absolute", left: "94px" }}>
-        <Ribbon1 />
-      </div>
-      <div style={{ position: "absolute", top: "94px" }}>
-        <Ribbon1 />
-      </div>
-      <div style={{ position: "absolute" }}>
-        <Ribbon2 />
-      </div>
-      <div
-        style={{
-          position: "absolute",
-          zIndex: "1",
-          fontFamily: "Lato, sans-serif",
-          fontWeight: "700",
-          fontStyle: "normal",
-          fontSize: "17px",
-          transform: " translateX(11px) rotate(-45deg) translateY(-7px)",
-          top: "38.5px",
-        }}
-      >
-        Featured
-      </div>
-
       {/* car image */}
       <div
         style={{
@@ -62,7 +37,7 @@ function CarCard({
             height: "100%",
             borderRadius: "inherit",
           }}
-          src={carImg}
+          src={cImg}
           alt=""
         />
       </div>
@@ -70,13 +45,13 @@ function CarCard({
       <div className="carCard-content-container">
         <div className="carCard-content-tag">New</div>
         <div className="carCard-content-title">
-          <p>{carTitle}</p>
+          <p>{cTitle}</p>
         </div>
         <div className="carCard-content-price">
-          <h2>{carPrice}</h2>
+          <h2>${cPrice}</h2>
         </div>
         <div className="carCard-content-location">
-          <p>{carLocation}</p>
+          <p>{cLocation}</p>
         </div>
         <div className="carCard-content-detail">
           <div className="carCard-content-detail-item">
@@ -89,7 +64,7 @@ function CarCard({
               }}
             >
               <Calendar />
-              <p>{carTime}</p>
+              <p>{cTime}</p>
             </div>
             <div
               style={{
@@ -99,7 +74,7 @@ function CarCard({
               }}
             >
               <Drive />
-              <p>{carDrive}</p>
+              <p>{cDrive}</p>
             </div>
           </div>
 
@@ -112,7 +87,7 @@ function CarCard({
               }}
             >
               <Fuel />
-              <p>{carFuel}</p>
+              <p>{cFuel}</p>
             </div>
             <div
               style={{
@@ -122,7 +97,7 @@ function CarCard({
               }}
             >
               <People />
-              <p>{carPeople}</p>
+              <p>{cPeople}</p>
             </div>
           </div>
         </div>
@@ -146,6 +121,7 @@ function CarCard({
             display: "flex",
             alignItems: "center",
             gap: "10px",
+            color: "white",
           }}
         >
           <div style={{ display: "flex", gap: "0" }}>
@@ -156,7 +132,7 @@ function CarCard({
             <StarEmpty />
           </div>
           <div>
-            <p>{carReview} review</p>
+            <p>{cReview} review</p>
           </div>
         </div>
       </div>

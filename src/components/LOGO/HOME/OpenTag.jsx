@@ -13,9 +13,9 @@ function OpenTag() {
         <path
           d="M1 12.3334L6.66667 6.66671L1 1.00004"
           stroke="#007CC7"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
       </svg>
     </div>

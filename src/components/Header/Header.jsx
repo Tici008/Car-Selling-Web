@@ -18,7 +18,7 @@ function Header() {
       </Link>
 
       <div className="header-link-container">
-        <Link className="link-style " to={"/car-detail"}>
+        <Link className="link-style " to={"/car-list"}>
           <div className="header-element">New Cars</div>
         </Link>
 

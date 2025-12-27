@@ -1,4 +1,4 @@
-.card-container {
+.carCard-container {
   position: relative;
   width: 330px;
   height: 511px;
@@ -7,10 +7,11 @@
   display: flex;
   flex-direction: column;
 }
-.card-content-container {
+.carCard-content-container {
   margin: 0px 16px 16px 16px;
+  color: white;
 }
-.card-content-tag {
+.carCard-content-tag {
   color: #007cc7;
   background-color: inherit;
   border: 1px solid #007cc7;
@@ -24,7 +25,7 @@
   line-height: 100%;
   border-radius: 3px;
 }
-.card-content-title {
+.carCard-content-title {
   margin-top: 12px;
   color: white;
   font-family: "Lato", sans-serif;
@@ -33,7 +34,7 @@
   font-size: 20px;
   height: 48px;
 }
-.card-content-price {
+.carCard-content-price {
   margin-top: 12px;
   color: #007cc7;
   font-family: "Lato", sans-serif;
@@ -41,7 +42,7 @@
   font-style: normal;
   font-size: 24px;
 }
-.card-content-location {
+.carCard-content-location {
   margin-top: 8px;
   color: white;
   font-family: "Lato", sans-serif;
@@ -50,7 +51,7 @@
   font-style: normal;
   font-size: 16px;
 }
-.card-content-detail {
+.carCard-content-detail {
   font-family: "Lato", sans-serif;
   font-weight: 400;
   line-height: 100%;
@@ -61,7 +62,7 @@
   flex-direction: column;
   gap: 16px;
 }
-.card-content-detail-item {
+.carCard-content-detail-item {
   display: flex;
   align-items: center;
   gap: 60px;
