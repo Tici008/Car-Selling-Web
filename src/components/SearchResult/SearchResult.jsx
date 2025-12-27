@@ -1,6 +1,15 @@
 import React, { useEffect, useState } from "react";
 import "./SearchResult.css";
 import CarCard from "../Car Card-noFeatured/CarCard";
+import {
+  Form,
+  ConfigProvider,
+  Button,
+  Radio,
+  Select,
+  Checkbox,
+  Flex,
+} from "antd";
 
 const SearchResult = () => {
   // API
@@ -16,12 +25,53 @@ const SearchResult = () => {
       .then(dataSet);
   }, []);
 
+  // Condition Radio
+  const conditionOptions = [
+    { label: "All", value: "All" },
+    { label: "New", value: "New" },
+    { label: "Used", value: "Used" },
+  ];
+
+  //Year Checkbox
+  const yearOptions = [
+    { label: "2016", value: "2016" },
+    { label: "2017", value: "2017" },
+    { label: "2018", value: "2018" },
+    { label: "2019", value: "2019" },
+  ];
+  // Brand Checkbox
+  const brandOptions = [
+    { label: "Ford", value: "Ford" },
+    { label: "Honda", value: "Honda" },
+    { label: "Tesla", value: "Tesla" },
+    { label: "Acura", value: "Acura" },
+    { label: "Mini", value: "Mini" },
+    { label: "BMW", value: "BMW" },
+  ];
+  //Fuel Select
+  const fuelOptions = [
+    { label: "Electric", value: "electric" },
+    { label: "Diesel", value: "diesel" },
+    { label: "Gasoline", value: "gasoline" },
+  ];
+  //Drive Train Select
+  const driveOptions = [
+    { label: "Four-Wheel", value: "four" },
+    { label: "All-Wheel", value: "all" },
+  ];
+  //Passenger Select
+  const passengerOptions = [
+    { label: "4 people", value: "4 " },
+    { label: "5 people", value: "5 " },
+    { label: "6 people", value: "6 " },
+    { label: "7 people", value: "7 " },
+    { label: "8 people", value: "8 " },
+  ];
+
   const [viewMode, setViewMode] = useState("grid"); // 'grid' or 'list'
 
   return (
     <div className="search-result-page">
-      {/* Header */}
-
       {/* Page Header Section */}
       <div className="page-header">
         <div className="page-header-content">
@@ -39,31 +89,35 @@ const SearchResult = () => {
               <h2>Filter</h2>
             </div>
 
-            <div className="filter-content">
-              {/* Search Field */}
-
+            <Form className="filter-content">
               {/* Condition Radio Buttons */}
               <div className="filter-group">
                 <h3>Condition</h3>
-                <div className="radio-group">
-                  <label className="radio-option">
-                    <input
-                      type="radio"
-                      name="condition"
-                      value="all"
-                      defaultChecked
-                    />
-                    <span className="radio-label">All</span>
-                  </label>
-                  <label className="radio-option">
-                    <input type="radio" name="condition" value="new" />
-                    <span className="radio-label">New</span>
-                  </label>
-                  <label className="radio-option">
-                    <input type="radio" name="condition" value="used" />
-                    <span className="radio-label">Used</span>
-                  </label>
-                </div>
+                <ConfigProvider
+                  theme={{
+                    components: {
+                      Radio: {
+                        radioSize: 18,
+                        dotSize: 10,
+                        colorText: "#ffffff",
+                        fontFamily: "Lato, sans-serif",
+                        fontWeight: 300,
+                        fontSize: "16px",
+                      },
+                    },
+                  }}
+                >
+                  <Radio.Group
+                    block
+                    options={conditionOptions}
+                    className="radio-group"
+                    defaultValue="All"
+                    buttonStyle="solid"
+                    name="condition"
+                    size="large"
+                    title={{ width: "100px" }}
+                  ></Radio.Group>
+                </ConfigProvider>
               </div>
 
               {/* Year Accordion */}
@@ -86,27 +140,27 @@ const SearchResult = () => {
                     />
                   </svg>
                 </div>
-                <div className="accordion-content">
-                  <label className="checkbox-option">
-                    <input type="checkbox" />
-                    <span>2016</span>
-                  </label>
-                  <label className="checkbox-option">
-                    <input type="checkbox" />
-                    <span>2017</span>
-                  </label>
-                  <label className="checkbox-option">
-                    <input type="checkbox" />
-                    <span>2018</span>
-                  </label>
-                  <label className="checkbox-option">
-                    <input type="checkbox" />
-                    <span>2019</span>
-                  </label>
-                  <a href="#" className="see-more">
-                    See More
-                  </a>
-                </div>
+                <ConfigProvider
+                  theme={{
+                    components: {
+                      Checkbox: {
+                        borderRadiusSM: 1,
+                        controlInteractiveSize: 16,
+                        radioSize: 18,
+                        dotSize: 10,
+                        colorText: "#ffffff",
+                        fontFamily: "Lato, sans-serif",
+                        fontWeight: 300,
+                        fontSize: "16px",
+                      },
+                    },
+                  }}
+                >
+                  <Checkbox.Group
+                    className="accordion-content"
+                    options={yearOptions}
+                  ></Checkbox.Group>
+                </ConfigProvider>
               </div>
 
               {/* Brand Accordion */}
@@ -129,124 +183,113 @@ const SearchResult = () => {
                     />
                   </svg>
                 </div>
-                <div className="accordion-content">
-                  <label className="checkbox-option">
-                    <input type="checkbox" />
-                    <span>Audi</span>
-                  </label>
-                  <label className="checkbox-option">
-                    <input type="checkbox" />
-                    <span>BMW</span>
-                  </label>
-                  <label className="checkbox-option">
-                    <input type="checkbox" />
-                    <span>Chevrolet</span>
-                  </label>
-                  <label className="checkbox-option">
-                    <input type="checkbox" />
-                    <span>Ford</span>
-                  </label>
-                  <a href="#" className="see-more">
-                    See More
-                  </a>
-                </div>
+                <ConfigProvider
+                  theme={{
+                    components: {
+                      Checkbox: {
+                        borderRadiusSM: 1,
+                        controlInteractiveSize: 16,
+                        radioSize: 18,
+                        dotSize: 10,
+                        colorText: "#ffffff",
+                        fontFamily: "Lato, sans-serif",
+                        fontWeight: 300,
+                        fontSize: "16px",
+                      },
+                    },
+                  }}
+                >
+                  <Checkbox.Group
+                    className="accordion-content"
+                    options={brandOptions}
+                  ></Checkbox.Group>
+                </ConfigProvider>
               </div>
 
               {/* Dropdowns */}
-              <div className="dropdown disabled">
-                <span>Model</span>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                  <path
-                    d="M6 9L12 15L18 9"
-                    stroke="#989898"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </div>
 
-              <div className="dropdown">
-                <span>Body Type</span>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                  <path
-                    d="M6 9L12 15L18 9"
-                    stroke="white"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </div>
-
-              <div className="dropdown">
-                <span>Transmission</span>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                  <path
-                    d="M6 9L12 15L18 9"
-                    stroke="white"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </div>
-
-              <div className="dropdown">
-                <span>Fuel Type</span>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                  <path
-                    d="M6 9L12 15L18 9"
-                    stroke="white"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </div>
-
-              <div className="dropdown">
-                <span>Drivetrain</span>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                  <path
-                    d="M6 9L12 15L18 9"
-                    stroke="white"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </div>
-
-              <div className="dropdown">
-                <span>Passenger Capacity</span>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                  <path
-                    d="M6 9L12 15L18 9"
-                    stroke="white"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </div>
-
-              <div className="dropdown">
-                <span>Exterior Color</span>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                  <path
-                    d="M6 9L12 15L18 9"
-                    stroke="white"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </div>
+              <ConfigProvider
+                theme={{
+                  components: {
+                    Select: {
+                      activeBorderColor: "transparent",
+                      activeOutlineColor: "transparent",
+                      hoverBorderColor: "transparent",
+                      colorText: "white",
+                      fontWeight: 300,
+                      fontSize: "14px",
+                      optionPadding: "10px 12px",
+                      optionSelectedFontWeight: "400",
+                      colorBorder: "#152836",
+                      colorBgContainer: "#152836",
+                      colorBgElevated: "#152836",
+                      colorText: "white",
+                    },
+                  },
+                }}
+              >
+                <Select
+                  className="dropdown"
+                  placeholder="Fuel Type"
+                  options={fuelOptions}
+                />
+              </ConfigProvider>
+              <ConfigProvider
+                theme={{
+                  components: {
+                    Select: {
+                      activeBorderColor: "transparent",
+                      activeOutlineColor: "transparent",
+                      hoverBorderColor: "transparent",
+                      colorText: "white",
+                      fontWeight: 300,
+                      fontSize: "14px",
+                      optionPadding: "10px 12px",
+                      optionSelectedFontWeight: "400",
+                      colorBorder: "#152836",
+                      colorBgContainer: "#152836",
+                      colorBgElevated: "#152836",
+                      colorText: "white",
+                    },
+                  },
+                }}
+              >
+                <Select
+                  className="dropdown"
+                  placeholder="Drivetrain"
+                  options={driveOptions}
+                />
+              </ConfigProvider>
+              <ConfigProvider
+                theme={{
+                  components: {
+                    Select: {
+                      activeBorderColor: "transparent",
+                      activeOutlineColor: "transparent",
+                      hoverBorderColor: "transparent",
+                      colorText: "white",
+                      fontWeight: 300,
+                      fontSize: "14px",
+                      optionPadding: "10px 12px",
+                      optionSelectedFontWeight: "400",
+                      colorBorder: "#152836",
+                      colorBgContainer: "#152836",
+                      colorBgElevated: "#152836",
+                      colorText: "white",
+                    },
+                  },
+                }}
+              >
+                <Select
+                  className="dropdown"
+                  placeholder="Passenger Capacity"
+                  options={passengerOptions}
+                />
+              </ConfigProvider>
 
               {/* Reset Filter Button */}
               <button className="reset-button"> Filter</button>
-            </div>
+            </Form>
           </aside>
 
           {/* Results Area */}
@@ -365,7 +408,7 @@ const SearchResult = () => {
                   cTime={carCard.date}
                   cDrive={carCard.type}
                   cFuel={carCard.fuel}
-                  cPeople={carCard.peopleLimit}
+                  cPeople={carCard.seats}
                   cReview={carCard.review}
                   cId={carCard.id}
                 />
