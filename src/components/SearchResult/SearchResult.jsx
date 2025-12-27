@@ -2,10 +2,83 @@ import React, { useState } from "react";
 import "./SearchResult.css";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
+import CarCard from "../CarCard/CarCard";
 
 const SearchResult = () => {
   const [viewMode, setViewMode] = useState("grid"); // 'grid' or 'list'
   const [currentPage, setCurrentPage] = useState(1);
+
+  // Sample car data - Thay thế bằng data từ API
+  const sampleCars = [
+    {
+      id: 1,
+      image: 'https://images.unsplash.com/photo-1619405399517-d7fce0f13302?w=800',
+      brand: 'Toyota',
+      model: 'Camry',
+      year: 2023,
+      condition: 'Used',
+      mileage: '15,000 km',
+      transmission: 'Automatic',
+      fuelType: 'Gasoline',
+      seats: '5',
+      color: 'Black',
+      price: 850000000,
+      location: 'Ho Chi Minh City',
+      seller: 'CarDealer Pro',
+      featured: true,
+    },
+    {
+      id: 2,
+      image: 'https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=800',
+      brand: 'Honda',
+      model: 'Civic',
+      year: 2022,
+      condition: 'New',
+      mileage: '5,000 km',
+      transmission: 'Manual',
+      fuelType: 'Gasoline',
+      seats: '5',
+      color: 'White',
+      price: 720000000,
+      location: 'Hanoi',
+      seller: 'Honda Official',
+      featured: false,
+    },
+    {
+      id: 3,
+      image: 'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=800',
+      brand: 'Mercedes',
+      model: 'C-Class',
+      year: 2023,
+      condition: 'New',
+      mileage: '2,000 km',
+      transmission: 'Automatic',
+      fuelType: 'Diesel',
+      seats: '5',
+      color: 'Silver',
+      price: 1850000000,
+      location: 'Ho Chi Minh City',
+      seller: 'Mercedes Benz VN',
+      featured: true,
+    },
+    {
+      id: 4,
+      image: 'https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=800',
+      brand: 'BMW',
+      model: 'X5',
+      year: 2022,
+      condition: 'Used',
+      mileage: '25,000 km',
+      transmission: 'Automatic',
+      fuelType: 'Diesel',
+      seats: '7',
+      color: 'Blue',
+      price: 2150000000,
+      location: 'Da Nang',
+      seller: 'BMW Vietnam',
+      featured: false,
+    },
+  ];
 
   return (
     <div className="search-result-page">
@@ -345,7 +418,9 @@ const SearchResult = () => {
 
             {/* Results Grid */}
             <div className={`results-grid ${viewMode}`}>
-              {/* Add your car card components here */}
+              {sampleCars.map((car) => (
+                <CarCard key={car.id} car={car} viewMode={viewMode} />
+              ))}
             </div>
 
             {/* Pagination */}
