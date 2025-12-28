@@ -9,8 +9,9 @@ import {
   Select,
   Checkbox,
   Flex,
+  Input,
 } from "antd";
-
+const { Search } = Input;
 const SearchResult = () => {
   // API
   const [cars, setCars] = useState([]);
@@ -24,6 +25,53 @@ const SearchResult = () => {
       .then((response) => response.json())
       .then(dataSet);
   }, []);
+
+  //Filter
+  const [filter, setFilter] = useState({
+    condition: "All",
+    year: [],
+    brand: [],
+    fuel: null,
+    drivetrain: null,
+    passenger: null,
+  });
+  const handleFilterChange = (name, value) => {
+    setFilter((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+  const handleReset = () => {
+    setFilter({
+      condition: "All",
+      year: [],
+      brand: [],
+      fuel: null,
+      drivetrain: null,
+      passenger: null,
+    });
+  };
+  const filteredCars = cars.filter((car) => {
+    const matchCondition =
+      filter.condition === "All" || car.condition === filter.condition;
+    const matchYear =
+      filter.year.length === 0 || filter.year.includes(car.year?.toString());
+    const matchBrand =
+      filter.brand.length === 0 || filter.brand.includes(car.brand);
+    const matchFuel = filter.fuel === null || filter.fuel === car.fuel;
+    const matchDriveTrain =
+      filter.drivetrain === null || filter.drivetrain === car.driveTrain;
+    const matchPassenger =
+      filter.passenger === null || filter.passenger === car.peopleLimit;
+    return (
+      matchCondition &&
+      matchYear &&
+      matchBrand &&
+      matchFuel &&
+      matchDriveTrain &&
+      matchPassenger
+    );
+  });
 
   // Condition Radio
   const conditionOptions = [
@@ -45,19 +93,20 @@ const SearchResult = () => {
     { label: "Honda", value: "Honda" },
     { label: "Tesla", value: "Tesla" },
     { label: "Acura", value: "Acura" },
-    { label: "Mini", value: "Mini" },
+    { label: "Mini", value: "MINI" },
     { label: "BMW", value: "BMW" },
   ];
   //Fuel Select
   const fuelOptions = [
-    { label: "Electric", value: "electric" },
-    { label: "Diesel", value: "diesel" },
-    { label: "Gasoline", value: "gasoline" },
+    { label: "Electric", value: "Electric" },
+    { label: "Diesel", value: "Diesel" },
+    { label: "Gasoline", value: "Gasoline" },
   ];
   //Drive Train Select
   const driveOptions = [
-    { label: "Four-Wheel", value: "four" },
-    { label: "All-Wheel", value: "all" },
+    { label: "Four-Wheel", value: "Four-Wheel" },
+    { label: "All-Wheel", value: "All-Wheel" },
+    { label: "Front-Wheel", value: "Front-Wheel" },
   ];
   //Passenger Select
   const passengerOptions = [
@@ -115,6 +164,10 @@ const SearchResult = () => {
                     buttonStyle="solid"
                     name="condition"
                     size="large"
+                    value={filter.condition}
+                    onChange={(e) =>
+                      handleFilterChange("condition", e.target.value)
+                    }
                     title={{ width: "100px" }}
                   ></Radio.Group>
                 </ConfigProvider>
@@ -159,6 +212,8 @@ const SearchResult = () => {
                   <Checkbox.Group
                     className="accordion-content"
                     options={yearOptions}
+                    value={filter.year}
+                    onChange={(value) => handleFilterChange("year", value)}
                   ></Checkbox.Group>
                 </ConfigProvider>
               </div>
@@ -202,6 +257,8 @@ const SearchResult = () => {
                   <Checkbox.Group
                     className="accordion-content"
                     options={brandOptions}
+                    value={filter.brand}
+                    onChange={(value) => handleFilterChange("brand", value)}
                   ></Checkbox.Group>
                 </ConfigProvider>
               </div>
@@ -232,6 +289,8 @@ const SearchResult = () => {
                   className="dropdown"
                   placeholder="Fuel Type"
                   options={fuelOptions}
+                  value={filter.fuel}
+                  onChange={(value) => handleFilterChange("fuel", value)}
                 />
               </ConfigProvider>
               <ConfigProvider
@@ -258,6 +317,8 @@ const SearchResult = () => {
                   className="dropdown"
                   placeholder="Drivetrain"
                   options={driveOptions}
+                  value={filter.drivetrain}
+                  onChange={(value) => handleFilterChange("drivetrain", value)}
                 />
               </ConfigProvider>
               <ConfigProvider
@@ -284,11 +345,16 @@ const SearchResult = () => {
                   className="dropdown"
                   placeholder="Passenger Capacity"
                   options={passengerOptions}
+                  value={filter.passenger}
+                  onChange={(value) => handleFilterChange("passenger", value)}
                 />
               </ConfigProvider>
 
               {/* Reset Filter Button */}
-              <button className="reset-button"> Filter</button>
+              <button onClick={handleReset} className="reset-button">
+                {" "}
+                Reset Filter
+              </button>
             </Form>
           </aside>
 
@@ -318,25 +384,28 @@ const SearchResult = () => {
                   strokeLinejoin="round"
                 />
               </svg>
-              <input type="text" placeholder="Search" />
+              <ConfigProvider
+                theme={{
+                  components: {
+                    Input: {
+                      activeBg: "#152836",
+                      hoverBg: "#152836",
+                      activeBorderColor: "transparent",
+                      hoverBorderColor: "transparent",
+                      activeShadow: "none",
+                    },
+                  },
+                }}
+              >
+                {" "}
+                <Input placeholder="Search"></Input>
+              </ConfigProvider>
             </div>
 
             {/* Results Header */}
             <div className="results-header">
-              <h2 className="results-count">6 Results</h2>
+              <h2 className="results-count"> {filteredCars.length} Results</h2>
               <div className="results-controls">
-                <div className="sort-dropdown">
-                  <span>Sort By</span>
-                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                    <path
-                      d="M5 7.5L10 12.5L15 7.5"
-                      stroke="white"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </div>
                 <button
                   className={`view-btn ${viewMode === "list" ? "active" : ""}`}
                   onClick={() => setViewMode("list")}
@@ -398,7 +467,7 @@ const SearchResult = () => {
 
             {/* Results Grid */}
             <div className={`results-grid ${viewMode}`}>
-              {cars.map((carCard) => (
+              {filteredCars.map((carCard) => (
                 <CarCard
                   key={carCard.id}
                   cImg={carCard.img1}
@@ -417,8 +486,6 @@ const SearchResult = () => {
           </main>
         </div>
       </div>
-
-      {/* Footer */}
 
       {/* Scroll to Top Button */}
       <button className="scroll-top-btn">

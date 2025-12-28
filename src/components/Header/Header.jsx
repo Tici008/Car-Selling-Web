@@ -19,10 +19,9 @@ function Header() {
 
       <div className="header-link-container">
         <Link className="link-style " to={"/car-list"}>
-          <div className="header-element">New Cars</div>
+          <div className="header-element">All Cars</div>
         </Link>
 
-        <div className="header-element">Used Cars</div>
         <div className="header-element">Compare</div>
         <div className="header-element">Sell</div>
         <div className="header-element-article">

@@ -30,7 +30,7 @@
       "fuelType": "Electric",
       "mileage": "340km",
       "transmission": "Automatic",
-      "driveTrain": "Rear-wheel Drive",
+      "driveTrain": "Four-wheel",
       "power": "283 hp (211 kW)",
 
       "batteryCapacity": "55.0-kWh",
@@ -73,7 +73,7 @@
       "fuelType": "Premium Gasoline",
       "mileage": "Varies by usage",
       "transmission": "10-speed Automatic",
-      "driveTrain": "All-Wheel Drive (AWD)",
+      "driveTrain": "All-Wheel",
       "power": "272 hp (203 kW)",
 
       "engine": "2.0L Turbocharged Inline-4",
@@ -116,7 +116,7 @@
       "fuelType": "Gasoline or Diesel",
       "mileage": "Varies by usage",
       "transmission": "Automatic",
-      "driveTrain": "Four-Wheel Drive (4WD)",
+      "driveTrain": "Four-Wheel ",
       "power": "385-475 hp (engine dependent)",
 
       "engine": "6.7L Power Stroke Diesel",
@@ -160,7 +160,7 @@
       "fuelType": "Premium Gasoline",
       "mileage": "Varies by usage",
       "transmission": "8-speed Automatic",
-      "driveTrain": "All-Wheel Drive (xDrive AWD)",
+      "driveTrain": "All-Wheel ",
       "power": "300 hp (224 kW)",
 
       "engine": "3.0L Turbocharged Inline-6",
@@ -203,7 +203,7 @@
       "fuelType": "Premium Gasoline",
       "mileage": "Varies by usage",
       "transmission": "7-speed Automatic",
-      "driveTrain": "Front-Wheel Drive (FWD)",
+      "driveTrain": "Front-Wheel",
       "power": "134 hp  ~4500 rpm",
 
       "engine": "1.5L Turbocharged 3-cylinder",
@@ -246,7 +246,7 @@
       "fuelType": "Regular Unleaded",
       "mileage": "0 km",
       "transmission": "10-speed Automatic",
-      "driveTrain": "All-Wheel Drive (AWD)",
+      "driveTrain": "All-Wheel",
       "power": "285 hp (212 kW)",
 
       "engine": "3.5L V6 24-Valve with VCM",
