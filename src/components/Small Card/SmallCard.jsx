@@ -70,11 +70,10 @@ function SmallCard({
       {/* content */}
       <div className="card-content-container">
         <div className="card-content-tag">New</div>
-        <Link className="link-style" to="/car-detail">
-          <div className="card-content-title">
-            <p>{carTitle}</p>
-          </div>
-        </Link>
+
+        <div className="card-content-title">
+          <p>{carTitle}</p>
+        </div>
 
         <div className="card-content-price">
           <h2>{carPrice}</h2>

@@ -35,6 +35,7 @@ const SearchResult = () => {
     drivetrain: null,
     passenger: null,
   });
+  const [searchQuery, setSearchQuery] = useState("");
   const handleFilterChange = (name, value) => {
     setFilter((prev) => ({
       ...prev,
@@ -52,6 +53,9 @@ const SearchResult = () => {
     });
   };
   const filteredCars = cars.filter((car) => {
+    const matchSearch = car.name
+      ?.toLowerCase()
+      .includes(searchQuery.toLowerCase());
     const matchCondition =
       filter.condition === "All" || car.condition === filter.condition;
     const matchYear =
@@ -64,6 +68,7 @@ const SearchResult = () => {
     const matchPassenger =
       filter.passenger === null || filter.passenger === car.peopleLimit;
     return (
+      matchSearch &&
       matchCondition &&
       matchYear &&
       matchBrand &&
@@ -398,7 +403,11 @@ const SearchResult = () => {
                 }}
               >
                 {" "}
-                <Input placeholder="Search"></Input>
+                <Input
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  placeholder="Search"
+                ></Input>
               </ConfigProvider>
             </div>
 

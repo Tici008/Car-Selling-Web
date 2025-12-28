@@ -5,6 +5,7 @@ import SmallCard from "../../Small Card/SmallCard";
 import carImg1 from "../../img/HOME img/Red.png";
 import carImg2 from "../../img/HOME img/Black.png";
 import carImg3 from "../../../../public/img/CARDETAIl img/Acura/acura1.jpg";
+import { Link } from "react-router";
 function Recommend() {
   return (
     <div className="recommend-container">
@@ -21,13 +22,7 @@ function Recommend() {
         >
           Recommended Cars
         </h1>
-        <div className="recommend-nav">
-          <div>
-            <div className="recommend-menu">New</div>
-            <div className="recommend-line"></div>
-          </div>
-          <div className="recommend-menu">Used</div>
-        </div>
+
         <div
           style={{
             display: "flex",
@@ -43,7 +38,10 @@ function Recommend() {
             cursor: "pointer",
           }}
         >
-          <div>See More</div>
+          <Link to="/car-list" className="link-style">
+            <div>See More</div>
+          </Link>
+
           <div style={{ position: "relative", top: "2px" }}>
             <OpenTag />
           </div>
