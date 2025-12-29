@@ -192,33 +192,3 @@ export async function updateUserProfile(userData) {
     throw error;
   }
 }
-
-// ===============================================
-// HƯỚNG DẪN SỬ DỤNG
-// ===============================================
-
-/*
-HƯỚNG DẪN SỬ DỤNG VỚI MINDX MOCKUP SERVER:
-
-1. Tạo Collection "users" trên MindX Mockup Server:
-   - Vào https://mindx-mockup-server.vercel.app/
-   - Đăng nhập vào database ID: 69524bb98c6a1ffcdb867eb1
-   - Tạo collection tên "users" với các field:
-     + fullName (string)
-     + email (string)
-     + phone (string)
-     + password (string)
-     + createdAt (string)
-
-2. Sử dụng trong component:
-   import { signIn, signUp } from './services/api';
-   
-   // Đăng ký
-   await signUp('Nguyen Van A', 'test@test.com', '0123456789', '123456');
-   
-   // Đăng nhập
-   await signIn('test@test.com', '123456');
-
-3. API đã được cấu hình sẵn, không cần thay đổi gì thêm!
-*/
-
