@@ -1,30 +1,14 @@
 {
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "username": "Quang",
       "password": "bi123"
     },
     {
-      "id": 1767004951010,
-      "username": "Quang",
+      "id": 1767010257819,
+      "username": "ngocquang",
       "email": "Nguyenlienbcy@gmail.com",
-      "password": "123456"
-    },
-    {
-      "id": "b723",
-      "email": "Nguyenlienbcy@gmail.com",
-      "password": "123456"
-    },
-    {
-      "id": "5ffc",
-      "email": "Nguyenlienbcy@gmail.com",
-      "password": "123456"
-    },
-    {
-      "id": 1767006940332,
-      "username": "ngocquangntth",
-      "email": "ngocquangntth@gmail.com",
       "password": "123123"
     }
   ]

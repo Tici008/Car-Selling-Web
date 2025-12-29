@@ -10,7 +10,7 @@ const SignUp = ({ onHandleId }) => {
   const navigate = useNavigate();
 
   const onFinish = (values) => {
-    fetch("http://localhost:3000/users", {
+    fetch("http://localhost:3002/users", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

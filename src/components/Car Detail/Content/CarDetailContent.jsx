@@ -34,11 +34,6 @@ function CarDetailContent({ carData }) {
 
       {/* PRICE + FEATURE*/}
       <div className="CarDetailContent-priceBox">${carData.cost}</div>
-      <div className="CarDetailContent-feature">
-        <p>Feature</p>
-        <div></div>
-        <p>Show more</p>
-      </div>
 
       {/* DETAIL */}
       <div className="CarDetailContent-detail">
@@ -195,19 +190,6 @@ function CarDetailContent({ carData }) {
             src="../../../../public/img/CARDETAIL img/location.png"
             alt=""
           />
-        </div>
-      </div>
-
-      {/* CREDIT */}
-      <div className="CarDetailContent-credit">
-        <p className="detail-smallTitle">Credit Simulation</p>
-        <div className="payment-simulation">
-          <div className="CarDetailContent-credit-left"></div>
-          <div className="CarDetailContent-credit-right">
-            <p>Monthly Payment</p>
-            <div></div>
-            <p>$2,878</p>
-          </div>
         </div>
       </div>
     </div>

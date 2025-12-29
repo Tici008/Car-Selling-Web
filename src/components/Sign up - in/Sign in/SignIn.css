@@ -1,13 +1,11 @@
-/* Container for full viewport centering */
 .signin-page-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: #152836; /* Light gray background common in Ant Design layouts */
+  background-color: #152836;
 }
 
-/* Card styling */
 .signin-page-wrapper .signin-card {
   width: 100%;
   max-width: 400px;
@@ -26,7 +24,6 @@
   font-weight: 500;
 }
 
-/* Responsive adjustments */
 @media (max-width: 480px) {
   .signin-page-wrapper .signin-card {
     padding: 24px;

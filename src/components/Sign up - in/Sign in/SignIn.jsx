@@ -10,7 +10,7 @@ const SignIn = ({ onLoginSuccess }) => {
   const navigate = useNavigate();
 
   const onFinish = () => {
-    fetch("http://localhost:3000/users")
+    fetch("http://localhost:3002/users")
       .then((res) => res.json())
       .then((data) => {
         onLoginSuccess(data);

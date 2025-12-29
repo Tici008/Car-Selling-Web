@@ -198,3 +198,7 @@
   padding: 15px;
   gap: 15px;
 }
+.ant-select-selection-item,
+.ant-select-item-option-content {
+  color: black !important;
+}

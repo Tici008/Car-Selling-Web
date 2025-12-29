@@ -1,4 +1,3 @@
-/* Container for full viewport centering */
 .signup-page-wrapper {
   display: flex;
   justify-content: center;
@@ -7,7 +6,6 @@
   background-color: #152836;
 }
 
-/* Card styling - slightly wider than sign in to accommodate potential extra fields nicely */
 .signup-page-wrapper .signup-card {
   width: 100%;
   max-width: 450px;
@@ -26,7 +24,6 @@
   font-weight: 500;
 }
 
-/* Responsive adjustments */
 @media (max-width: 480px) {
   .signup-page-wrapper .signup-card {
     padding: 24px;
