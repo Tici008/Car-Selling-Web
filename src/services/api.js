@@ -1,217 +1,224 @@
-// API Configuration
-const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || 'http://localhost:3000/api';
+// ===============================================
+// API SERVICE - QUẢN LÝ CÁC CUỘC GỌI API
+// ===============================================
 
-// Helper function for API calls
-const apiCall = async (endpoint, options = {}) => {
-  const defaultHeaders = {
-    'Content-Type': 'application/json',
-  };
+// MindX Mockup Server - Database ID: 69524bb98c6a1ffcdb867eb1
+const API_KEY = '69524bb98c6a1ffcdb867eb1';
+const API_BASE_URL = 'https://mindx-mockup-server.vercel.app/api/resources';
 
-  // Add token if exists
-  const token = localStorage.getItem('authToken');
-  if (token) {
-    defaultHeaders['Authorization'] = `Bearer ${token}`;
-  }
+// ===============================================
+// 1. AUTHENTICATION API - Xác thực người dùng
+// ===============================================
 
-  const config = {
-    ...options,
-    headers: {
-      ...defaultHeaders,
-      ...options.headers,
-    },
-  };
-
+// Đăng nhập
+export async function signIn(email, password) {
   try {
-    const response = await fetch(`${API_BASE_URL}${endpoint}`, config);
-    const data = await response.json();
+    // Fetch trực tiếp từ endpoint /users
+    const api = `${API_BASE_URL}/users?apiKey=${API_KEY}`;
+    
+    const response = await fetch(api, {
+      method: 'GET',
+    });
 
     if (!response.ok) {
-      throw new Error(data.message || 'Something went wrong');
+      throw new Error('Không thể kết nối server!');
     }
 
-    return data;
+    const responseData = await response.json();
+    
+    // Lấy users từ cấu trúc: data.data[]
+    const users = responseData.data?.data || [];
+    
+    // Tìm user khớp với email và password
+    const user = users.find(u => u.email === email && u.password === password);
+    
+    if (!user) {
+      throw new Error('Email hoặc mật khẩu không đúng!');
+    }
+    
+    // Tạo token giả (vì MindX Mockup không có JWT)
+    const token = `token_${user._id}_${Date.now()}`;
+    
+    // Lưu token và user vào localStorage
+    localStorage.setItem('authToken', token);
+    localStorage.setItem('user', JSON.stringify(user));
+    
+    return {
+      success: true,
+      token: token,
+      user: user
+    };
+    
   } catch (error) {
-    console.error('API Error:', error);
+    console.error('Lỗi khi đăng nhập:', error);
     throw error;
   }
-};
+}
 
-// Authentication API
-export const authAPI = {
-  // Sign In
-  signIn: async (credentials) => {
-    // TODO: Replace with your actual API endpoint
-    // return apiCall('/auth/login', {
-    //   method: 'POST',
-    //   body: JSON.stringify(credentials),
-    // });
+// Đăng ký
+export async function signUp(fullName, email, phone, password) {
+  try {
+    // Fetch trực tiếp từ endpoint /users
+    const api = `${API_BASE_URL}/users?apiKey=${API_KEY}`;
     
-    // Temporary mock response
-    console.log('Sign In API called with:', credentials);
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        resolve({
-          success: true,
-          token: 'mock-jwt-token',
-          user: {
-            id: 1,
-            email: credentials.email,
-            name: 'User Name',
-          },
-        });
-      }, 1000);
-    });
-  },
-
-  // Sign Up
-  signUp: async (userData) => {
-    // TODO: Replace with your actual API endpoint
-    // return apiCall('/auth/register', {
-    //   method: 'POST',
-    //   body: JSON.stringify(userData),
-    // });
+    // Kiểm tra email đã tồn tại chưa
+    const checkResponse = await fetch(api);
+    const responseData = await checkResponse.json();
     
-    // Temporary mock response
-    console.log('Sign Up API called with:', userData);
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        resolve({
-          success: true,
-          message: 'Account created successfully',
-          user: {
-            id: 1,
-            email: userData.email,
-            name: userData.fullName,
-          },
-        });
-      }, 1000);
-    });
-  },
-
-  // Forgot Password
-  forgotPassword: async (email) => {
-    // TODO: Replace with your actual API endpoint
-    // return apiCall('/auth/forgot-password', {
-    //   method: 'POST',
-    //   body: JSON.stringify({ email }),
-    // });
+    // Lấy users từ cấu trúc: data.data[]
+    const existingUsers = responseData.data?.data || [];
     
-    console.log('Forgot Password API called with:', email);
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        resolve({
-          success: true,
-          message: 'Password reset email sent',
-        });
-      }, 1000);
-    });
-  },
-
-  // Reset Password
-  resetPassword: async (token, newPassword) => {
-    // TODO: Replace with your actual API endpoint
-    // return apiCall('/auth/reset-password', {
-    //   method: 'POST',
-    //   body: JSON.stringify({ token, newPassword }),
-    // });
+    const emailExists = existingUsers.some(u => u.email === email);
+    if (emailExists) {
+      throw new Error('Email đã được sử dụng!');
+    }
     
-    console.log('Reset Password API called');
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        resolve({
-          success: true,
-          message: 'Password reset successfully',
-        });
-      }, 1000);
+    // Tạo user mới - POST tới /users với apiKey
+    const postApi = `${API_BASE_URL}/users?apiKey=${API_KEY}`;
+    const response = await fetch(postApi, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        fullName: fullName,
+        email: email,
+        phone: phone,
+        password: password,
+        createdAt: new Date().toISOString()
+      }),
     });
-  },
 
-  // Logout
-  logout: () => {
-    localStorage.removeItem('authToken');
-    localStorage.removeItem('user');
-    // TODO: Call logout API if needed
-    // return apiCall('/auth/logout', { method: 'POST' });
-  },
-};
+    if (!response.ok) {
+      throw new Error('Đăng ký thất bại!');
+    }
 
-// User API
-export const userAPI = {
-  // Get current user profile
-  getProfile: async () => {
-    // TODO: Replace with your actual API endpoint
-    // return apiCall('/user/profile', { method: 'GET' });
+    const data = await response.json();
+    return {
+      success: true,
+      message: 'Đăng ký thành công!',
+      user: data
+    };
     
-    console.log('Get Profile API called');
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        resolve({
-          success: true,
-          user: {
-            id: 1,
-            email: 'user@example.com',
-            name: 'User Name',
-            phone: '0123456789',
-          },
-        });
-      }, 500);
-    });
-  },
+  } catch (error) {
+    console.error('Lỗi khi đăng ký:', error);
+    throw error;
+  }
+}
 
-  // Update user profile
-  updateProfile: async (userData) => {
-    // TODO: Replace with your actual API endpoint
-    // return apiCall('/user/profile', {
-    //   method: 'PUT',
-    //   body: JSON.stringify(userData),
-    // });
+// Đăng xuất
+export function logout() {
+  localStorage.removeItem('authToken');
+  localStorage.removeItem('user');
+}
+
+// Kiểm tra đã đăng nhập chưa
+export function isAuthenticated() {
+  const token = localStorage.getItem('authToken');
+  return token !== null;
+}
+
+// Lấy thông tin user hiện tại
+export function getCurrentUser() {
+  const userString = localStorage.getItem('user');
+  if (userString) {
+    return JSON.parse(userString);
+  }
+  return null;
+}
+
+// ===============================================
+// 2. USER API - Quản lý người dùng
+// ===============================================
+
+// Lấy thông tin profile
+export async function getUserProfile() {
+  try {
+    const user = getCurrentUser();
+    if (!user || !user._id) {
+      throw new Error('Chưa đăng nhập!');
+    }
     
-    console.log('Update Profile API called with:', userData);
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        resolve({
-          success: true,
-          message: 'Profile updated successfully',
-        });
-      }, 1000);
+    const api = `${API_BASE_URL}/users/${user._id}?apiKey=${API_KEY}`;
+    
+    const response = await fetch(api, {
+      method: 'GET',
     });
-  },
-};
 
-// Helper functions for local storage
-export const authStorage = {
-  setToken: (token) => {
-    localStorage.setItem('authToken', token);
-  },
-  
-  getToken: () => {
-    return localStorage.getItem('authToken');
-  },
-  
-  removeToken: () => {
-    localStorage.removeItem('authToken');
-  },
-  
-  setUser: (user) => {
-    localStorage.setItem('user', JSON.stringify(user));
-  },
-  
-  getUser: () => {
-    const user = localStorage.getItem('user');
-    return user ? JSON.parse(user) : null;
-  },
-  
-  removeUser: () => {
-    localStorage.removeItem('user');
-  },
-  
-  isAuthenticated: () => {
-    return !!localStorage.getItem('authToken');
-  },
-};
+    if (!response.ok) {
+      throw new Error('Không thể lấy thông tin người dùng!');
+    }
 
-export default {
-  authAPI,
-  userAPI,
-  authStorage,
-};
+    const responseData = await response.json();
+    return responseData.data || responseData;
+    
+  } catch (error) {
+    console.error('Lỗi khi lấy profile:', error);
+    throw error;
+  }
+}
+
+// Cập nhật profile
+export async function updateUserProfile(userData) {
+  try {
+    const user = getCurrentUser();
+    if (!user || !user._id) {
+      throw new Error('Chưa đăng nhập!');
+    }
+    
+    const api = `${API_BASE_URL}/users/${user._id}?apiKey=${API_KEY}`;
+    
+    const response = await fetch(api, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(userData),
+    });
+
+    if (!response.ok) {
+      throw new Error('Cập nhật thất bại!');
+    }
+
+    const data = await response.json();
+    
+    // Cập nhật lại localStorage
+    localStorage.setItem('user', JSON.stringify(data));
+    
+    return data;
+    
+  } catch (error) {
+    console.error('Lỗi khi cập nhật profile:', error);
+    throw error;
+  }
+}
+
+// ===============================================
+// HƯỚNG DẪN SỬ DỤNG
+// ===============================================
+
+/*
+HƯỚNG DẪN SỬ DỤNG VỚI MINDX MOCKUP SERVER:
+
+1. Tạo Collection "users" trên MindX Mockup Server:
+   - Vào https://mindx-mockup-server.vercel.app/
+   - Đăng nhập vào database ID: 69524bb98c6a1ffcdb867eb1
+   - Tạo collection tên "users" với các field:
+     + fullName (string)
+     + email (string)
+     + phone (string)
+     + password (string)
+     + createdAt (string)
+
+2. Sử dụng trong component:
+   import { signIn, signUp } from './services/api';
+   
+   // Đăng ký
+   await signUp('Nguyen Van A', 'test@test.com', '0123456789', '123456');
+   
+   // Đăng nhập
+   await signIn('test@test.com', '123456');
+
+3. API đã được cấu hình sẵn, không cần thay đổi gì thêm!
+*/
+

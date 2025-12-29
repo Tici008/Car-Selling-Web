@@ -5,7 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import './SignUp.css';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
-import { authAPI } from '../../services/api';
+import { signUp } from '../../services/api';
 
 const SignUp = () => {
   const [form] = Form.useForm();
@@ -15,24 +15,24 @@ const SignUp = () => {
   const onFinish = async (values) => {
     setLoading(true);
     try {
-      // Call API
-      const response = await authAPI.signUp({
-        fullName: values.fullName,
-        email: values.email,
-        phone: values.phone,
-        password: values.password,
-        agreeToTerms: values.agreement,
-      });
-
-      if (response.success) {
-        message.success('Đăng ký thành công! Vui lòng đăng nhập.');
-        setTimeout(() => {
-          navigate('/signin');
-        }, 1000);
-      }
+      // Gọi API đăng ký
+      const data = await signUp(
+        values.fullName,
+        values.email,
+        values.phone,
+        values.password
+      );
+      
+      message.success('Đăng ký thành công! Vui lòng đăng nhập.');
+      
+      // Chuyển sang trang đăng nhập sau 1.5 giây
+      setTimeout(() => {
+        navigate('/signin');
+      }, 1500);
+      
     } catch (error) {
-      message.error(error.message || 'Đăng ký thất bại. Vui lòng thử lại!');
-      console.error('Sign up error:', error);
+      message.error('Đăng ký thất bại. Email có thể đã tồn tại!');
+      console.error('Lỗi đăng ký:', error);
     } finally {
       setLoading(false);
     }

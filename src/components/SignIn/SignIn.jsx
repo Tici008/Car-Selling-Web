@@ -5,7 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import './SignIn.css';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
-import { authAPI, authStorage } from '../../services/api';
+import { signIn } from '../../services/api';
 
 const SignIn = () => {
   const [form] = Form.useForm();
@@ -15,26 +15,19 @@ const SignIn = () => {
   const onFinish = async (values) => {
     setLoading(true);
     try {
-      // Call API
-      const response = await authAPI.signIn({
-        email: values.email,
-        password: values.password,
-        remember: values.remember,
-      });
-
-      if (response.success) {
-        // Store token and user info
-        authStorage.setToken(response.token);
-        authStorage.setUser(response.user);
-        
-        message.success('Đăng nhập thành công!');
-        setTimeout(() => {
-          navigate('/');
-        }, 1000);
-      }
+      // Gọi API đăng nhập - Token và user sẽ tự động lưu vào localStorage
+      const data = await signIn(values.email, values.password);
+      
+      message.success('Đăng nhập thành công!');
+      
+      // Chuyển về trang chủ sau 1 giây
+      setTimeout(() => {
+        navigate('/');
+      }, 1000);
+      
     } catch (error) {
-      message.error(error.message || 'Đăng nhập thất bại. Vui lòng thử lại!');
-      console.error('Sign in error:', error);
+      message.error('Email hoặc mật khẩu không đúng!');
+      console.error('Lỗi đăng nhập:', error);
     } finally {
       setLoading(false);
     }
