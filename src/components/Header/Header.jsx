@@ -4,7 +4,7 @@ import logoImg from "../img/cbd16f02ecd93bbc4d7b2ad92d273e350353d94e.png";
 import Vector from "../LOGO/Vector";
 import SignUp from "../LOGO/SignUp";
 import { Link } from "react-router";
-function Header() {
+function Header({ user, onLogout }) {
   return (
     <header className="header-container">
       <Link className="link-style" to={""}>
@@ -30,17 +30,38 @@ function Header() {
         </div>
       </div>
       <div className="header-sign-container">
-        <div className="header-sign">
-          <div
-            style={{
-              transform: "translateY(2px)",
-            }}
-          >
-            <SignUp />
+        {user ? (
+          <div className="header-sign" style={{ gap: "15px" }}>
+            <span style={{ fontWeight: "bold", color: "#1890ff" }}>
+              Hello, {user?.username || user?.email || "Guest"}
+            </span>
+            <span
+              className="header-element"
+              style={{ cursor: "pointer" }}
+              onClick={onLogout}
+            >
+              Logout
+            </span>
           </div>
-          <a className="header-element">Sign up</a>
-        </div>
-        <a className="header-element"> Sign in</a>
+        ) : (
+          <>
+            <div className="header-sign">
+              <div
+                style={{
+                  transform: "translateY(2px)",
+                }}
+              >
+                <SignUp />
+              </div>
+              <Link className="link-style header-element" to={"/car-signUp"}>
+                Sign up
+              </Link>
+            </div>
+            <Link className="link-style header-element" to={"/car-signIn"}>
+              Sign in
+            </Link>
+          </>
+        )}
       </div>
     </header>
   );

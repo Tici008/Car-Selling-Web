@@ -1,0 +1,35 @@
+/* Container for full viewport centering */
+.signin-page-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #152836; /* Light gray background common in Ant Design layouts */
+}
+
+/* Card styling */
+.signin-page-wrapper .signin-card {
+  width: 100%;
+  max-width: 400px;
+  padding: 40px;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.signin-page-wrapper .signin-header {
+  margin-bottom: 20px;
+}
+
+.signin-page-wrapper .signin-form-button {
+  height: 40px;
+  font-weight: 500;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .signin-page-wrapper .signin-card {
+    padding: 24px;
+    max-width: 90%;
+  }
+}

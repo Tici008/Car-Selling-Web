@@ -1,0 +1,35 @@
+/* Container for full viewport centering */
+.signup-page-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #152836;
+}
+
+/* Card styling - slightly wider than sign in to accommodate potential extra fields nicely */
+.signup-page-wrapper .signup-card {
+  width: 100%;
+  max-width: 450px;
+  padding: 40px;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.signup-page-wrapper .signup-header {
+  margin-bottom: 20px;
+}
+
+.signup-page-wrapper .signup-form-button {
+  height: 40px;
+  font-weight: 500;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .signup-page-wrapper .signup-card {
+    padding: 24px;
+    max-width: 90%;
+  }
+}
