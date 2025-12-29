@@ -5,6 +5,7 @@ import Footer from "./components/Footer/Footer";
 import CarDetail from "./components/Car Detail/CarDetail";
 import { Route, Routes } from "react-router";
 import SearchResult from "./components/SearchResult/SearchResult";
+import CarCardLong from "./components/CarCard/CarCardLong";
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
         <Routes>
           <Route path="" element={<Home />} />
           <Route path="car-detail/:id" element={<CarDetail />} />
-          <Route path="car-list" element={<SearchResult />} />
+          <Route path="car-list" element={<CarCardLong />} />
         </Routes>
         <Footer />
       </div>
