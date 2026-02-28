@@ -313,7 +313,6 @@ const SearchResult = () => {
                       colorBorder: "#152836",
                       colorBgContainer: "#152836",
                       colorBgElevated: "#152836",
-                      colorText: "white",
                     },
                   },
                 }}
@@ -341,7 +340,6 @@ const SearchResult = () => {
                       colorBorder: "#152836",
                       colorBgContainer: "#152836",
                       colorBgElevated: "#152836",
-                      colorText: "white",
                     },
                   },
                 }}
