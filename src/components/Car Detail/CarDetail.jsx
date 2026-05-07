@@ -3,15 +3,18 @@ import "./CarDetail.css";
 import Header2 from "../Header 2/Header2";
 import CarDetailContent from "./Content/CarDetailContent.jsx";
 import { useParams } from "react-router";
+import axiosModel from "../../api/axiosConfig";
 
 function CarDetail() {
   const [cars, setCars] = useState([]);
   const { id } = useParams();
-  const apiUrl = "http://localhost:3000/cars";
   useEffect(() => {
-    fetch(`${apiUrl}/${id}`)
-      .then((res) => res.json())
-      .then((data) => setCars(data));
+    const fetchData = async () => {
+      const response = await axiosModel.get(`/cars/${id}`);
+      console.log(response);
+      setCars(response.data.car);
+    };
+    fetchData();
   }, [id]);
   return (
     <>

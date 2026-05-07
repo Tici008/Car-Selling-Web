@@ -8,14 +8,19 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "watch": "json-server --watch data-car.json --port 3001"
+    "watch": "json-server --watch data-car.json --port 3000"
   },
   "dependencies": {
+    "@tailwindcss/vite": "^4.2.1",
     "antd": "^6.0.1",
+    "axios": "^1.13.6",
+    "cors": "^2.8.6",
     "json-server": "^1.0.0-beta.3",
+    "lucide-react": "^0.577.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
-    "react-router": "^7.9.6"
+    "react-router": "^7.9.6",
+    "tailwindcss": "^4.2.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",

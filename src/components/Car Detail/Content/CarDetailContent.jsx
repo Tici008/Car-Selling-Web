@@ -10,6 +10,7 @@ function CarDetailContent({ carData }) {
   const onSubmit = () => {
     form.resetFields();
   };
+  console.log(carData);
   return (
     <div className="CarDetailContent-container">
       {/* DESCRIPTION */}
@@ -92,15 +93,15 @@ function CarDetailContent({ carData }) {
             alt=""
           />
           <div style={{ display: "flex", flexDirection: "column", gap: "2px" }}>
-            <p>Alfredo Gouse</p>
+            <p>{carData?.sellerId?.name}</p>
             <p>Dealer</p>
           </div>
           <div className="dealer-stick"></div>
           <Phone />
-          <p>240-865-3730</p>
+          <p>{carData?.sellerId?.phone}</p>
           <div className="dealer-stick"></div>
           <Email />
-          <p>alfred.g@mail.com</p>
+          <p>{carData?.sellerId?.email}</p>
         </div>
       </div>
 
@@ -182,9 +183,7 @@ function CarDetailContent({ carData }) {
 
         <div>
           <p className="detail-smallTitle">Location</p>
-          <p className="detail-location">
-            9500 E Tsala Apopka Dr, Floral City, FL, 34436, Florida, USA
-          </p>
+          <p className="detail-location">{carData.location}</p>
           <img
             style={{ marginTop: "20px", width: "100%", height: "100%" }}
             src="../../../../public/img/CARDETAIL img/location.png"

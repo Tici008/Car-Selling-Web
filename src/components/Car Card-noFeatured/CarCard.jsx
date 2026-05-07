@@ -7,6 +7,10 @@ import People from "../LOGO/HOME/People";
 import StarEmpty from "../LOGO/HOME/StarEmpty";
 import StarFull from "../LOGO/HOME/StarFull";
 import { Link } from "react-router";
+import HeartButton from "../LOGO/Profile/HeartButton/HeartButton.jsx";
+import axiosModel from "../../api/axiosConfig.js";
+import { useState, useEffect } from "react";
+
 function CarCard({
   cId,
   cImg,
@@ -18,7 +22,40 @@ function CarCard({
   cFuel,
   cPeople,
   cReview,
+  cUpdate,
+  onUpdate,
+  cLiked,
+  onRemoveCar,
 }) {
+  const [liked, setLiked] = useState(cLiked);
+  useEffect(() => {
+    setLiked(cLiked);
+  }, [cLiked]);
+
+  //like handle
+  const handleAddFavorite = async () => {
+    try {
+      const id = cId;
+      const response = await axiosModel.post(`/favorite-cars/${id}`);
+      console.log(response);
+      setLiked(true);
+    } catch (err) {
+      console.error("Error updating like status:", err);
+    }
+  };
+
+  //unlike handle
+  const handleDeleteFavorite = async () => {
+    try {
+      const id = cId;
+      const response = await axiosModel.delete(`/favorite-cars/${id}`);
+      console.log(response);
+      setLiked(false);
+      onRemoveCar(id);
+    } catch (err) {
+      console.error("Error updating like status:", err);
+    }
+  };
   return (
     <div className="carCard-container">
       {/* car image */}
@@ -38,7 +75,7 @@ function CarCard({
             borderRadius: "inherit",
           }}
           src={cImg}
-          alt=""
+          alt="noimg"
         />
       </div>
       {/* content */}
@@ -116,6 +153,7 @@ function CarCard({
         <div
           style={{
             marginTop: "10px",
+            marginLeft: "40px",
             fontFamily: "Lato, sans-serif",
             fontWeight: "700",
             lineHeight: "100%",
@@ -138,6 +176,28 @@ function CarCard({
             <p>{cReview} review</p>
           </div>
         </div>
+        <div style={{ display: "flex" }}>
+          {cUpdate ? (
+            <button
+              className="update-button"
+              onClick={() => onUpdate({ cTitle, cId })}
+            >
+              Update
+            </button>
+          ) : (
+            <></>
+          )}
+        </div>
+        {liked ? (
+          <div className="heart-button">
+            <HeartButton onUnlike={handleDeleteFavorite} onLiked={liked} />
+          </div>
+        ) : (
+          <div className="heart-button">
+            <HeartButton onLike={handleAddFavorite} onLiked={liked} />
+          </div>
+        )}
+        <div></div>
       </div>
     </div>
   );

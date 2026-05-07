@@ -11,19 +11,27 @@ import {
   Flex,
   Input,
 } from "antd";
+import axiosModel from "../../api/axiosConfig";
+
 const { Search } = Input;
 const SearchResult = () => {
   // API
   const [cars, setCars] = useState([]);
-  const apiUrl = "http://localhost:3000/cars";
+
   const dataSet = (data) => {
     setCars(data);
   };
-
+  const fetchData = async () => {
+    try {
+      const response = await axiosModel.get("/cars");
+      dataSet(response.data.cars);
+      console.log(response.data);
+    } catch (error) {
+      console.error("Error fetching car data:", error);
+    }
+  };
   useEffect(() => {
-    fetch(apiUrl)
-      .then((response) => response.json())
-      .then(dataSet);
+    fetchData();
   }, []);
 
   //Filter
@@ -486,7 +494,8 @@ const SearchResult = () => {
                   cFuel={carCard.fuel}
                   cPeople={carCard.seats}
                   cReview={carCard.review}
-                  cId={carCard.id}
+                  cId={carCard._id}
+                  cLiked={carCard.isLiked}
                 />
               ))}
             </div>

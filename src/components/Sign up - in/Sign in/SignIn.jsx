@@ -3,19 +3,38 @@ import { Form, Input, Button, Checkbox, Typography, message } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import "./SignIn.css";
 import { Link, useNavigate } from "react-router";
+import axios from "axios";
+import axiosModel from "../../../api/axiosConfig";
 
 const { Title, Text } = Typography;
 
-const SignIn = ({ onLoginSuccess }) => {
+const SignIn = ({ onUser, onLoginSuccess }) => {
   const navigate = useNavigate();
 
-  const onFinish = () => {
-    fetch("http://localhost:3002/users")
-      .then((res) => res.json())
-      .then((data) => {
-        onLoginSuccess(data);
-        navigate("/");
+  const onFinish = async (values) => {
+    try {
+      const response = await axiosModel.post("/login", {
+        email: values.email,
+        password: values.password,
       });
+      console.log(response);
+
+      //Get token
+      const token = response.data.token;
+      console.log("Received token:", token);
+
+      //Save token to local storage
+      localStorage.setItem("token", token);
+      console.log(localStorage.getItem("token"));
+
+      //Set state
+      onUser(response.data.isActivated);
+
+      navigate("/");
+      onLoginSuccess();
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (

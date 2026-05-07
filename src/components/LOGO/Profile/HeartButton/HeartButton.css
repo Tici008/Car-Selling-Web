@@ -1,0 +1,56 @@
+.container {
+  background-color: #0b0c10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+}
+.heart-button {
+  background-color: transparent !important;
+  background: transparent !important;
+  border: none !important;
+  top: 440px !important;
+  left: 10px !important;
+  box-shadow: none !important;
+  padding: 0px !important;
+}
+.heart-btn {
+  background: none !important;
+  border: none;
+  cursor: pointer;
+  padding: 10px 0px 10px 10px;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.1s ease;
+}
+
+/* Hiệu ứng thu nhỏ nhẹ khi nhấn chuột xuống */
+.heart-btn:active {
+  transform: scale(0.9);
+}
+
+.heart-svg {
+  width: 23px;
+  height: 23px;
+  fill: none; /* Trái tim rỗng */
+  stroke: #555; /* Viền màu xám */
+  stroke-width: 2px;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Khi đã ấn Like */
+.heart-btn.liked .heart-svg {
+  fill: #ff0000; /* Đổi sang màu đỏ */
+  stroke: #ff0000; /* Viền cũng màu đỏ */
+  transform: scale(1.2); /* Phóng to nhẹ một chút */
+  filter: drop-shadow(
+    0 0 5px rgba(255, 0, 0, 0.3)
+  ); /* Thêm hiệu ứng phát sáng nhẹ */
+}
+
+/* Hiệu ứng rung rinh khi hover (tùy chọn) */
+.heart-btn:hover .heart-svg {
+  stroke: #ff4d4d;
+}

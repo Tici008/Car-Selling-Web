@@ -1,42 +1,32 @@
 import React from "react";
-import { Form, Input, Button, Typography, message } from "antd";
+import { Form, Input, Button, Typography, message, Select } from "antd";
 import { UserOutlined, MailOutlined, LockOutlined } from "@ant-design/icons";
 import { Link, useNavigate } from "react-router";
 import "./SignUp.css";
+import axios from "axios";
+import axiosModel from "../../../api/axiosConfig";
 
 const { Title, Text } = Typography;
 
 const SignUp = ({ onHandleId }) => {
   const navigate = useNavigate();
 
-  const onFinish = (values) => {
-    fetch("http://localhost:3002/users", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        id: Date.now(),
-        username: values.username,
+  const onFinish = async (values) => {
+    try {
+      const response = await axiosModel.post("/register", {
         email: values.email,
         password: values.password,
-      }),
-    })
-      .then((response) => {
-        if (response.ok) {
-          return response.json();
-        }
-        throw new Error("Đăng ký thất bại, vui lòng thử lại!");
-      })
-      .then((data) => {
-        onHandleId(data.id);
-        navigate("/car-signIn");
-      })
-      .catch((error) => {
-        console.error("Lỗi:", error);
-        message.error(error.message || "Không thể kết nối đến server!");
+        isActive: true,
+        role: values.role,
       });
+      console.log(response);
+
+      navigate("/car-signIn");
+    } catch (err) {
+      console.log(err);
+    }
   };
+
   const [form] = Form.useForm();
 
   return (
@@ -66,22 +56,8 @@ const SignUp = ({ onHandleId }) => {
           scrollToFirstError
           layout="vertical"
           size="large"
+          initialValues={{ role: "CUSTOMER" }}
         >
-          <Form.Item
-            name="username"
-            tooltip="What do you want others to call you?"
-            rules={[
-              {
-                required: true,
-                message: "Please input your username!",
-                whitespace: true,
-              },
-              { min: 3, message: "Username must be at least 3 characters" },
-            ]}
-          >
-            <Input prefix={<UserOutlined />} placeholder="Username" />
-          </Form.Item>
-
           <Form.Item
             name="email"
             rules={[
@@ -116,8 +92,8 @@ const SignUp = ({ onHandleId }) => {
                   }
                   return Promise.reject(
                     new Error(
-                      "The two passwords that you entered do not match!"
-                    )
+                      "The two passwords that you entered do not match!",
+                    ),
                   );
                 },
               }),
@@ -128,7 +104,15 @@ const SignUp = ({ onHandleId }) => {
               placeholder="Confirm Password"
             />
           </Form.Item>
-
+          <Form.Item
+            name="role"
+            rules={[{ required: true, message: "Please select your role" }]}
+          >
+            <Select placeholder="Select your role">
+              <Option value="CUSTOMER">Customer</Option>
+              <Option value="SELLER">Seller</Option>
+            </Select>
+          </Form.Item>
           <Form.Item>
             <Button
               type="primary"
