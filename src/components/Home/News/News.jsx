@@ -1,7 +1,7 @@
 import React from "react";
 import "./News.css";
-import carImg12 from "../../img/HOME img/New/Road.jpg";
-import carImg34 from "../../img/HOME img/New/Halfcar.jpg";
+import carImg12 from "../../img/HOME_img/New/Road.jpg";
+import carImg34 from "../../img/HOME_img/New/Halfcar.jpg";
 
 function News() {
   return (

@@ -2,9 +2,9 @@ import React from "react";
 import "./Recommend.css";
 import OpenTag from "../../LOGO/HOME/OpenTag";
 import SmallCard from "../../Small Card/SmallCard";
-import carImg1 from "../../img/HOME img/Red.png";
-import carImg2 from "../../img/HOME img/Black.png";
-import carImg3 from "../../../../public/img/CARDETAIl img/Acura/acura1.jpg";
+import carImg1 from "../../img/HOME_img/Red.png";
+import carImg2 from "../../img/HOME_img/Black.png";
+import carImg3 from "/img/CARDETAIL_img/Acura/acura1.jpg";
 import { Link } from "react-router";
 function Recommend() {
   return (

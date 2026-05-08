@@ -1,7 +1,7 @@
 import React from "react";
 import "./CarDetailContent.css";
-import Phone from "../../LOGO/CAR DETAIL/Phone";
-import Email from "../../LOGO/CAR DETAIL/Email";
+import Phone from "../../LOGO/CAR_DETAIL/Phone";
+import Email from "../../LOGO/CAR_DETAIL/Email";
 import { Button, Form, Input, Select } from "antd";
 import DetailBox from "./CarContent-detail/detailBox";
 const { TextArea } = Input;
@@ -88,10 +88,7 @@ function CarDetailContent({ carData }) {
       <div className="CarDetailContent-dealer">
         <p className="detail-smallTitle">Dealer Info</p>
         <div className="car-dealer">
-          <img
-            src="../../../../public/img/CARDETAIL img/dealer ava/dealerRed.png"
-            alt=""
-          />
+          <img src="../..//img/CARDETAIL_img/dealer_ava/dealerRed.png" alt="" />
           <div style={{ display: "flex", flexDirection: "column", gap: "2px" }}>
             <p>{carData?.sellerId?.name}</p>
             <p>Dealer</p>
@@ -186,7 +183,7 @@ function CarDetailContent({ carData }) {
           <p className="detail-location">{carData.location}</p>
           <img
             style={{ marginTop: "20px", width: "100%", height: "100%" }}
-            src="../../../../public/img/CARDETAIL img/location.png"
+            src="../..//img/CARDETAIL_img/location.png"
             alt=""
           />
         </div>

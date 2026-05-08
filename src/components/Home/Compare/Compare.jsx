@@ -1,8 +1,8 @@
 import React from "react";
 import "./Compare.css";
 import CompareCard from "./CompareCard/CompareCard";
-import carImg1 from "../../img/HOME img/Red.png";
-import carImg2 from "../../img/HOME img/Black.png";
+import carImg1 from "../../img/HOME_img/Red.png";
+import carImg2 from "../../img/HOME_img/Black.png";
 
 function Compare() {
   return (

@@ -1,15 +1,15 @@
 import React from "react";
 import "./Home.css";
 import Banner from "./Banner/Banner";
-import Filter from "./Filter Area/Filter";
+import Filter from "./Filter_Area/Filter.jsx";
 import Recommend from "./Recommended/Recommend";
 import Compare from "./Compare/Compare";
 import News from "./News/News";
-import About from "./About Us/About.jsx";
+import About from "./About_Us/About.jsx";
 import Service from "./Service/Service.jsx";
 import Testimonial from "./Testimonial/Testimonial.jsx";
 import Contact from "./Contact/Contact.jsx";
-import Brand from "./Car Brand/Brand.jsx";
+import Brand from "./Car_Brand/Brand.jsx";
 
 function Home() {
   return (

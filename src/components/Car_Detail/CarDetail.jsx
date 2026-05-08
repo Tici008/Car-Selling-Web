@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "./CarDetail.css";
-import Header2 from "../Header 2/Header2";
+import Header2 from "../Header_2/Header2.jsx";
 import CarDetailContent from "./Content/CarDetailContent.jsx";
 import { useParams } from "react-router";
-import axiosModel from "../../api/axiosConfig";
+import axiosModel from "../../api/axiosConfig.js";
 
 function CarDetail() {
   const [cars, setCars] = useState([]);

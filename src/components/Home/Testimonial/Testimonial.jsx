@@ -1,6 +1,6 @@
 import React from "react";
 import "./Testimonial.css";
-import testimonialImg from "../../img/HOME img//Testimonial/CustomerReview.jpg";
+import testimonialImg from "../../img/HOME_img//Testimonial/CustomerReview.jpg";
 
 function Testimonial() {
   return (

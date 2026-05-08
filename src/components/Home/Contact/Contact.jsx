@@ -1,6 +1,6 @@
 import React from "react";
 import "./Contact.css";
-import mapImg from "../../img/HOME img/map.png";
+import mapImg from "../../img/HOME_img/map.png";
 import { Button, Form, Input, Select } from "antd";
 const { TextArea } = Input;
 

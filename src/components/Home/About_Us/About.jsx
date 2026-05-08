@@ -1,6 +1,6 @@
 import React from "react";
 import "./About.css";
-import aboutImg from "../../img/HOME img/About us.jpg";
+import aboutImg from "../../img/HOME_img/About us.jpg";
 function About() {
   return (
     <div className="about-container">
