@@ -1,7 +1,7 @@
 import React from "react";
 import "./Recommend.css";
 import OpenTag from "../../LOGO/HOME/OpenTag";
-import SmallCard from "../../Small Card/SmallCard";
+import SmallCard from "../../Small_Card/SmallCard";
 import carImg1 from "../../img/HOME_img/Red.png";
 import carImg2 from "../../img/HOME_img/Black.png";
 import carImg3 from "/img/CARDETAIL_img/Acura/acura1.jpg";
