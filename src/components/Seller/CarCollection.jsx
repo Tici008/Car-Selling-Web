@@ -11,7 +11,7 @@ import {
 } from "antd";
 import { ArrowLeft, Trash2, Save } from "lucide-react";
 import axiosConfig from "../../api/axiosConfig";
-import CarCard from "../Car Card-noFeatured/CarCard";
+import CarCard from "../Car_Card-noFeatured/CarCard";
 import axiosModel from "../../api/axiosConfig";
 import { useNavigate } from "react-router";
 

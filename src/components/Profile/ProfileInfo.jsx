@@ -12,7 +12,7 @@ import {
   Calendar,
   GripHorizontal,
 } from "lucide-react";
-import CarCard from "../Car Card-noFeatured/CarCard";
+import CarCard from "../Car_Card-noFeatured/CarCard";
 import axiosModel from "../../api/axiosConfig.js";
 import { useState, useEffect } from "react";
 
@@ -41,7 +41,7 @@ const ProfileInfo = () => {
       if (!response || response.status !== 200) {
         throw new Error("User cars not found");
       }
-      setFavCars(response.data.cars)
+      setFavCars(response.data.cars);
       console.log(response);
     } catch (err) {
       console.error("Error fetching user cars:", err.message);
@@ -55,7 +55,7 @@ const ProfileInfo = () => {
   //----Handle delete-----//
   const removeCarFromList = async (id) => {
     const newFavList = favCars.filter((car) => car.carId._id !== id);
-    console.log("remove car successfully")
+    console.log("remove car successfully");
     setFavCars(newFavList);
   };
   GripHorizontal;
@@ -212,8 +212,6 @@ const ProfileInfo = () => {
     },
   };
 
-
-  
   // Render Component Thông tin cá nhân
   const ProfileInfo = () => (
     <div style={styles.profileSection}>
@@ -286,14 +284,14 @@ const ProfileInfo = () => {
   const FavoriteCars = () => (
     <div>
       {favCars.length > 1 ? (
-      <h1 style={{ marginBottom: "40px", fontSize: "32px" }}>
-        {favCars.length} Results
-      </h1>
-       ) : (
+        <h1 style={{ marginBottom: "40px", fontSize: "32px" }}>
+          {favCars.length} Results
+        </h1>
+      ) : (
         <h1 style={{ marginBottom: "40px", fontSize: "32px" }}>
           {favCars.length} Result
-      </h1>
-       )}
+        </h1>
+      )}
       <div style={styles.carGrid}>
         {favCars.length > 0 ? (
           favCars.map((car) => (
