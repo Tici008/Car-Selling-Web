@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./SearchResult.css";
-import CarCard from "../Car Card-noFeatured/CarCard";
+import CarCard from "../Car_Card-noFeatured/CarCard";
 import {
   Form,
   ConfigProvider,
